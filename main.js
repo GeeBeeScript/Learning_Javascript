@@ -1,4 +1,549 @@
 
+// JavaScript functions (separate course)
+// function evaluate(a, b, c) {
+//     return a + b / c
+// }
+
+// console.log(evaluate(1, 2, 3));
+
+// const evaluate = function (a, b, c) {
+//     return a + b / c
+// }
+
+// console.log(evaluate(1, 2, 3));
+
+// Rest parameter
+// function restExample (x, ...y) {
+//     console.log("x: " + x, typeof(x));
+//     console.log("y: " + y, typeof(y));
+// }
+
+// restExample("a","b","c","d","e","f","g")
+
+// const sum = function (x, y) {
+//     return x + y    
+// }
+
+// Arrow functions
+// const sum = (x, y) => {
+//     return x + y
+// }
+
+// const sum = (x, y) => x + y 
+
+// const restExample = (x, ...y) => {
+//     console.log(x);
+//     console.log(y);
+// }
+
+// Calling the function "logMe(a, b)" after inputting arguments will result in
+// an undefined error of the name "logMe". This is because as far as this 
+// statement is concerned, "logMe" is now undefined. You should call the function
+// using "value()"
+// let value = function logMe (a, b) {
+//     console.log(a, b);
+// }
+
+// logMe(2, 3)
+
+// Nested functions
+
+// function first () {
+//     console.log("first function");
+//     function second () {
+//         console.log("second function");
+//     }
+//     second()
+// }
+
+// first()
+
+// closures
+
+// function outer(x) {
+//     function inner(y) {
+//         return x + y
+//     }
+//     return inner
+// }
+
+// const outerValue = outer(5)
+// console.log(outerValue(4))
+// console.log(outerValue(2))
+
+// callback function
+
+// function randomFunc(callback) {
+//     callback()
+// }
+
+// randomFunc(function () {
+//     return "hi"
+// })
+
+// function cb(fullName) {
+//     return fullName
+// }
+
+// console.log(randomFunc(cb));
+
+// Higher order functions are functions that take one or more functions as an
+// argument, and or returns a function. 
+
+// function getValue(value) {
+//     value()
+// }
+
+// getValue(function () {
+//     return console.log("hi");
+// })
+
+
+// A pure function is a function that produces the same output for the same 
+// input
+
+// function greetMe(name) {
+//     console.log(`Welcome, ${name}`);
+// }
+
+// greetMe("Daniella")
+
+// let greeting = "Welcome"
+
+// function greet(name) {
+//     return `${greeting} ${name}`
+// }
+
+// console.log(greet("Jesse"));
+// console.log(greet("Jill"));
+
+// greeting = "Hello"
+
+// console.log(greet("Prince"));
+
+
+// Immediately Invoked function expressions (IIFE). In IIFEs the code inside
+// the function expression get executed immediately after the function is 
+// defined. 
+
+// (function () {
+//     console.log("This is an IIFE");
+// }) ()
+
+
+// Recursion occurs when a function calls itself repeatedly. When using 
+// recursions, you should always have a base condition. A base condition is a
+// specified condition to be satisfied in order for the recursion to stop.
+
+// function x () {
+//     console.log("hi");
+//     x()
+// }
+
+// x()
+
+// const x = function y () {
+//     y()
+// }
+
+// x()
+
+// This is a possible format for a base condition
+
+// function recurse () {
+//     if (baseCondition) {
+//         // do something
+//         return
+//     }
+
+//     recurse()
+// }
+
+
+// count = 5
+
+// function setCount() {
+//     if (count === 0) {
+//         console.log("count is zero");
+//         return 
+//     }
+//     console.log("count is being set. Current value: " + count);
+//     count--
+    
+//     setCount()
+// }
+
+// setCount()
+
+
+// OBJECT ORIENTED PROGRAMMING (separate course)
+// It is a style of programming or a programming paradigm. The 4 pillars of
+// object oriented programming include, encapsulation, abstraction, inheritance 
+// and polymorphism. Before oop, procedural programming was mainly used - it
+// essentially involved separating your code into functions. Procedural
+// programming has the main disadvantage of changing code in various functions
+// when a minor adjustment is made, since the functions are inter-dependent. 
+// OOP, solving this problem, combines a group of related variables into one
+// unit - called an object. The variables in objects are called properties.
+// and the functions in objects are called methods. For example, the 
+// localStorage object has a property called length, which gives the length
+// of items in the localStorage. It has methods like getItem() and setItem(). 
+// In OOPs we group related variables and functions that operate on them into
+// objects(this is called Encapsulation). 
+
+// Below is procedural methodology in practice
+
+let salary = 40000
+let taxPercentage = 7
+
+function salaryToBePaid(salary, taxPercentage) {
+    return salary - (salary * (taxPercentage / 100))
+}
+
+console.log(salaryToBePaid(salary, taxPercentage));
+
+// Below is OOP methodology in practice. Notice how a javascript object
+// (dictionary in python) is used to keep the related variables and functions
+// together. Also in OOPs, your functions tend to have fewer parameters when 
+// compared to their procedural counterparts. 
+
+let employeeDetails = {
+    salary: 40000,
+    taxPercentage: 7,
+    salaryToBePaid: function () {
+        return this.salary - (this.salary * (this.taxPercentage / 100))
+    }
+}
+
+console.log(employeeDetails.salaryToBePaid())
+
+// Abstraction is essentially hiding some of the properties and methods from 
+// the outside code. This has the advantage of making the code simpler, and 
+// reducing the impact of future changes on properties and functions. 
+
+// Inheritance allows you to eliminate redundant code from multiple objects.
+// You can 'inherit' previously defined properties and methods(characteristics
+// and functionality) from former objects. 
+
+// Polymorphism. "Poly" means "many", and "morph" means "forms". Polymorphism
+// means "many forms". Polymorphism helps eliminate long "if-else" or "switch
+// -case" statements. 
+
+// An object(dictionary equivalent in python) is a collection of key-value
+// pairs, and is signified by this '{}' symbol - which is called an object
+// literal syntax. In OOP, properties are used to hold values, while methods
+// (functions) are used to define logic. Duplicating an object that has a 
+// method is not advisable(i.e creating multiple objects that have the same
+// method), because if there is an error within the method, you'll have to 
+// fix the error in multiple places. That being said, if an object has at 
+// least one function, that means it is considered to have 'behaviour', it 
+// best practice to use a Constructor Function rather than duplicating the 
+// object. For example: 
+
+// This is an object with properties and methods
+// const point = {
+//     width: 2,
+//     location: {
+//         x: 0.23,
+//         y: 0.79
+//     },
+//     plot: function () {
+//         console.log("Plotted");
+//     }
+// }
+
+// Duplicating objects with the same method is not advisable
+// const point1 = {
+//     width: 4,
+//     location: {
+//         x: 0.43,
+//         y: 0.25
+//     },
+//     plot: function () {
+//         console.log("Plotted");
+//     }
+// }
+
+
+// Factory Function: We can use this method
+
+// function createPoint (width) {
+//     return {
+//         // width: 2,
+//         // width: width,
+//         width, 
+//         //This is equivalent to width: width. This syntax is from ES6, and is used 
+//         // when the key and value have the same name. 'location' was removed to
+//         // simplify code. 
+//         plot: function () {
+//             console.log("Plotted");
+//         }
+//     }
+// }
+
+// const point1 = createPoint(1)
+// console.log(point1);
+
+
+// Constructor Function. We can also use a constructor function. When defining
+// a constructor function, the function name is capitalized. This looks like a
+// traditional class, but in javascript, the concept of classes do not exist. 
+// When instantiating a new object using the constructor function, add the
+// keyword 'new' in front of the constructor function name. 'new' creates a 
+// new object ({}), and 'this' in the constructor function applies to that
+// new object. If you don't apply new during instantiation, 'this' will apply
+// to the default global object, and in javascript, the default global object
+// is the DOMs 'window' object. 
+
+// You can decide to use either factory or constructor function syntax. 
+
+// function Point (width) {
+//     this.width = width,
+//     this.plot = function () {
+//         console.log("plotted");
+//     }
+// }
+
+// const point1 = new Point(3)
+
+// Every object, datatype, item in javascript has a property called 'constructor',
+// that references the function that was used to create the object. 
+
+// console.log(point1.constructor);
+
+// let y = {}
+// Behind the scenes, javascript translates it as, let y = new Object().
+// Javascript also has other built-in constructors like: 
+// new String(), which we usually use string literals to represent - "", '', ``
+// new Boolean(), we usually use boolean literals to represent - true, false
+// new Number(), we use number literals to represent - 1, 2, 3, 4 
+// Functions are also objects(they are translated as objects by javascript, just
+// like other data types). 
+
+// function Point (width) {
+//     this.width = width,
+//     this.plot = function () {
+//         console.log("plotted");
+//     }
+// }
+
+// This function is represented as this constructor function below by javascript
+// behind the scenes.
+
+// const point = new Function ("radius", `
+//     this.width = width,
+//     this.plot = function () {
+//         console.log("plotted")
+//     }`
+// )
+
+
+// Value types(or primitives) include: Number, String, Boolean, Symbol(ES6), 
+// undefined, null. 
+// Reference types include: Object, Function, Array.
+// Since function and array are also objects, we have: primitives and objects.
+
+// Primitives
+
+// let x = 5
+// let y = x
+
+// x = 10
+// console.log(x);
+// console.log(y);
+// x and y are independent, i.e they behave normally. 
+
+// Reference type
+
+// let x = { value: 5 }
+// let y = x
+
+// x["value"] = 10
+
+// console.log(x);
+// console.log(y);
+
+// They are dependent, as reference types are stored separately in memory,
+// and any reassignment goes to the same value goes to that same memory address.
+// As such, any change to the values from any variable that has access, will
+// result to a change to the values in memory(only one reference). Once that 
+// is changed, all variables that have access will have their values modified
+// (i.e, it does not behave normally).
+// Basically, primitives are copied by their value, and objects are copied by
+// their reference. 
+
+// Another example
+
+// Behaves normally
+// let number = 7
+
+// function increase (number) {
+//     number++
+// }
+
+// increase(number)
+// console.log(number);
+
+
+// obj parameter(not argument) points to 'obj' variable, and changes it(does
+// not behave normally, because it is a reference type). 
+// let obj = {value: 7}
+
+// function increase (obj) {
+//     obj++
+// }
+
+// increase(obj)
+// console.log(obj);
+
+// function Point (width) {
+//     this.width = width,
+//     this.plot = function () {
+//         console.log("plotted");
+//     }
+// }
+
+// const point1 = new Point()
+
+// // With this method, you can dynamically add new properties (since it return
+// // an object). 
+
+// // point1.location = {x: 0.74, y: 2.5}
+// // You can also use bracket notation
+// point1["location"] = {x: 0.74, y: 2.5}
+
+// console.log(point1);
+
+// // To delete a property from an existing object, we can use: 
+
+// delete point1["location"]
+// console.log(point1);
+
+
+// Abstraction: To make some methods or properties inaccessible, i.e hide the
+// details or complexity and show only the essentials or necessaries. 
+
+// The principles of abstraction have been implemented here, as "defaultLocation"
+// and "computeOptimalLocation()" are not accessible outside the constructor
+// function. They have now become local variables
+// function Point (width) {
+//     this.width = width
+
+//     let defaultLocation = {x: 0}
+
+//     let computeOptimalLocation = function (factor) {
+//         return
+//     }
+
+//     this.plot = function () {
+
+//         computeOptimalLocation(0.78)
+
+//         console.log("plotted");
+//     }
+// }
+
+// To be able to read and set abstracted properties, we can use getters and
+// setters
+
+// function Point (width) {
+//     this.width = width
+
+//     let defaultLocation = {x: 0}
+
+//     let computeOptimalLocation = function (factor) {
+//         return
+//     }
+
+//     this.plot = function () {
+
+//         computeOptimalLocation(0.78)
+
+//         console.log("plotted");
+//     }
+
+//     Object.defineProperty(this, "defaultLocation", {
+//         get: function () {
+//             return defaultLocation
+//         },
+//         set: function (value) {
+//             // You can decide to add some error handling
+//             if(!value.x || !value.y) {
+//                 throw new Error("Invalid Location")
+//             }
+//             defaultLocation = value
+//         }
+//     })
+
+// }
+
+// const point1 = new Point(15)
+// point1.defaultLocation = {x: 1.7, y: 2.5}
+// console.log(point1.defaultLocation);
+
+
+// point1.plot()
+
+// console.log(point1);
+
+
+function StopWatch() {
+    let duration = 0
+    let hasStarted = false
+    let hasStopped = false
+    let getStartTime = 0
+
+    this.start = function () {
+        if (hasStarted) {
+            throw new Error("Stopwatch has already started")
+        }
+        hasStarted = true
+        hasStopped = false
+        getStartTime = new Date().getTime()   
+        console.log(getStartTime / 1000);
+        
+    }
+
+    this.stop = function () {
+        hasStarted = false
+        if (hasStopped) {
+            throw new Error("Stopwatch has already stopped")
+        }
+        hasStopped = true
+        toSeconds = 1000
+        getCurrTime = ((new Date().getTime()) - getStartTime) / toSeconds
+        duration += getCurrTime
+        console.log(new Date().getTime() / 1000);
+        
+    }
+
+    this.reset = function () {
+        duration = 0
+        hasStarted = false
+        hasStopped = false
+        getStartTime = 0
+    }
+
+    Object.defineProperty(this, "duration", {
+        get: function () {
+            return duration
+        }
+    })
+}
+
+const sw = new StopWatch()
+
+
+
+
+
+
+
+
+
+
+
+
 // Web Storage API - they are methods of storage provided by the browser. 
 // Some examples include localStorage and sessionStorage. There are default
 // methods for these web storage API (localStorage and sessionStorage). Some
@@ -18,6 +563,7 @@
 
 // localStorage.setItem("name", "Bianca")
 // localStorage.setItem("name", "Austin")
+
 
 // localStorage.setItem("age", 42)
 // localStorage.setItem("job", "Digital Marketer")
