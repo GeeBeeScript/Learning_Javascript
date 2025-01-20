@@ -193,29 +193,29 @@
 
 // Below is procedural methodology in practice
 
-let salary = 40000
-let taxPercentage = 7
+// let salary = 40000
+// let taxPercentage = 7
 
-function salaryToBePaid(salary, taxPercentage) {
-    return salary - (salary * (taxPercentage / 100))
-}
+// function salaryToBePaid(salary, taxPercentage) {
+//     return salary - (salary * (taxPercentage / 100))
+// }
 
-console.log(salaryToBePaid(salary, taxPercentage));
+// console.log(salaryToBePaid(salary, taxPercentage));
 
-// Below is OOP methodology in practice. Notice how a javascript object
-// (dictionary in python) is used to keep the related variables and functions
-// together. Also in OOPs, your functions tend to have fewer parameters when 
-// compared to their procedural counterparts. 
+// // Below is OOP methodology in practice. Notice how a javascript object
+// // (dictionary in python) is used to keep the related variables and functions
+// // together. Also in OOPs, your functions tend to have fewer parameters when 
+// // compared to their procedural counterparts. 
 
-let employeeDetails = {
-    salary: 40000,
-    taxPercentage: 7,
-    salaryToBePaid: function () {
-        return this.salary - (this.salary * (this.taxPercentage / 100))
-    }
-}
+// let employeeDetails = {
+//     salary: 40000,
+//     taxPercentage: 7,
+//     salaryToBePaid: function () {
+//         return this.salary - (this.salary * (this.taxPercentage / 100))
+//     }
+// }
 
-console.log(employeeDetails.salaryToBePaid())
+// console.log(employeeDetails.salaryToBePaid())
 
 // Abstraction is essentially hiding some of the properties and methods from 
 // the outside code. This has the advantage of making the code simpler, and 
@@ -487,51 +487,185 @@ console.log(employeeDetails.salaryToBePaid())
 // console.log(point1);
 
 
-function StopWatch() {
-    let duration = 0
-    let hasStarted = false
-    let hasStopped = false
-    let getStartTime = 0
+// function StopWatch() {
+//     let duration = 0
+//     let hasStarted = false
+//     let hasStopped = false
+//     let getStartTime = 0
 
-    this.start = function () {
-        if (hasStarted) {
-            throw new Error("Stopwatch has already started")
-        }
-        hasStarted = true
-        hasStopped = false
-        getStartTime = new Date().getTime()   
-        console.log(getStartTime / 1000);
+//     this.start = function () {
+//         if (hasStarted) {
+//             throw new Error("Stopwatch has already started")
+//         }
+//         hasStarted = true
+//         hasStopped = false
+//         getStartTime = new Date().getTime()   
+//         console.log(getStartTime / 1000);
         
-    }
+//     }
 
-    this.stop = function () {
-        hasStarted = false
-        if (hasStopped) {
-            throw new Error("Stopwatch has already stopped")
-        }
-        hasStopped = true
-        toSeconds = 1000
-        getCurrTime = ((new Date().getTime()) - getStartTime) / toSeconds
-        duration += getCurrTime
-        console.log(new Date().getTime() / 1000);
+//     this.stop = function () {
+//         hasStarted = false
+//         if (hasStopped) {
+//             throw new Error("Stopwatch has already stopped")
+//         }
+//         hasStopped = true
+//         toSeconds = 1000
+//         getCurrTime = ((new Date().getTime()) - getStartTime) / toSeconds
+//         duration += getCurrTime
+//         console.log(new Date().getTime() / 1000);
         
-    }
+//     }
 
-    this.reset = function () {
-        duration = 0
-        hasStarted = false
-        hasStopped = false
-        getStartTime = 0
-    }
+//     this.reset = function () {
+//         duration = 0
+//         hasStarted = false
+//         hasStopped = false
+//         getStartTime = 0
+//     }
 
-    Object.defineProperty(this, "duration", {
-        get: function () {
-            return duration
-        }
-    })
+//     Object.defineProperty(this, "duration", {
+//         get: function () {
+//             return duration
+//         }
+//     })
+// }
+
+// const sw = new StopWatch()
+
+
+
+// OOP (separate course)
+// OOP is a programming paradigm (style of writing code) that is based on 
+// the concept of objects. We can use objects to model real-world or abstract
+// features, for example, user, to-do list item, html component or data 
+// structure. Objects can contain data (properties) and code (methods). Objects
+// are building blocks of applications, and they interact with one another.
+//  OOP was developed with the goal of organizing code, to make it more 
+// flexible and easier to maintain. 
+// The four fundamental principles that can guide us toward a good class
+// implementation include: Abstraction, Encapsulation, Inheritance and
+// Polymorphism. 
+// Abstraction involvs ignoring or hiding details that don't matter from the user.
+// It allows users to get an overview of what we are implementing, without 
+// going into details that don't matter to them
+// Encapsulation essentially involves keeping methods and properties private
+// inside a class, so they are not accessible from outside the class. 
+// Inheritance makes all properties and methods of a certain class, available
+// to a child class, forming a hierarchical relationship between classes. The 
+// child class can also have its own separate properties and methods. 
+// Polymorphism means that a child class can overwrite the method inherited 
+// from a parent class. 
+// The process of creating a new instance from a class or constructor function
+// is called, "instantiation". The objects created from a class are called
+// "instances". 
+// PROTOTYPES
+// All objects in javascript are linked to a certain prototype object. So, we 
+// can say that each object has a prototype. The prototype object contains 
+// methods and properties that all the objects linked to that prototype can
+// access and use(this behaviour is called prototypal inheritance). This is 
+// different from the inheritance pillar in OOP. Basically, objects inherit
+// methods and properties from the prototype(this is why it is called 
+// prorotypal inheritance). This is basically an instance inheriting from a 
+// class. Objects delegate their behaviour(methods) to the linked prototype
+// object. In classical oop(i.e, in normal classes), the methods are copied 
+// from the class to the object, which is different. 
+// The 3 ways of implementing prototypal inheritance in javascript include,
+// Constructor functions, ES6 classes and the Object.create() method. 
+// Constructor functions are a technique to create objects from a function. 
+// This is how built-in methods like Array, map and set are implemented. 
+// ES6 classes are a modern alternative to the constructor function syntax. 
+// Behind the scenes, ES6 classes work exactly like constructor functions. 
+// They are essentially constructor functions with a different syntax. 
+// ES6 classes do not behave like the classes in normal OOPs. 
+// Object.create() method is the most straightforward way of linking an object
+// to a prototype object. However, it is not as used as the other two methods. 
+// Arrow functions will not work as a constructor function, because arrow 
+// functions do not have their own "this" keyword. 
+
+
+// const Student = function (name, idNumber) {
+//     console.log(this);
+// }
+
+// new Student("Mike", "ide5658")
+// When constructor function is created: 
+// A new empty objected is created, then the function is called, and the "this"
+// keyword is set to the newly created, empty object. The newly created object
+// is then linked to a prototype. Finally, the object that was created is
+// automatically returned from the constructor function.  
+
+const Student = function (name, idNumber) {
+    // Instance properties
+    this.name = name
+    this.idNumber = idNumber
+
+    // Instance method: This is bad practice. You should never create a method
+    // inside of a constructor function. Instead, prototypes and prototypal 
+    // inheritance should be used. 
+    // this.calcGrade = function () {
+    //     return "calculated grade"
+    // }
 }
 
-const sw = new StopWatch()
+const mike = new Student("Mike", "ide5658")
+console.log(mike);
+const jason = new Student("Jason", "fe6342")
+const deborah = new Student("Deborah", "td7243")
+
+const david = "David"
+
+console.log(jason instanceof Student);
+console.log(david instanceof Student);
+
+console.log(Student.prototype);
+
+
+Student.prototype.calcGrade = function () {
+    console.log("Grade");
+}
+
+console.log(jason.calcGrade());
+
+// To observe the content of the protype property of the constructor function,
+// we can get any instance, and add ".__proto__"
+
+console.log(deborah.__proto__);
+// Student.prototype is the prototype to be used by all the objects that
+// are created with the "Student" constructor function.
+console.log(deborah.__proto__ === Student.prototype);
+// Another way to check: 
+console.log(Student.prototype.isPrototypeOf(deborah));
+console.log(Student.prototype.isPrototypeOf(jason));
+console.log(Student.prototype.isPrototypeOf(Student));
+
+// You can set properties on prototypes as well
+Student.prototype.yearOfEntry = 2022
+// console.log(jason, mike);
+// This property is not directly in the object(its in the prototype). So this
+// is not its "own" property. "Own" properties are the ones declared directly
+// on the object itself(excluding inherited properties).  
+console.log(jason.yearOfEntry, mike.yearOfEntry);
+
+// To check whether the property is an "own" property: 
+console.log(jason.hasOwnProperty("name"));
+console.log(jason.hasOwnProperty("yearOfEntry"));
+
+// Person.prototype is not the prototype of Person, but 
+// Person.prototype.constructor, i.e, the constructor of Person.prototype is
+// Person()(i.e, the Person constructor function). 
+
+// Sidenote: "this" is set to the new empty object. "this.name = name" means
+// that particular new object variable of "name" should be assigned to the
+// "name" parameter, passed in the constructor function declaration. 
+
+
+
+
+
+
+
+
 
 
 
