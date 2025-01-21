@@ -595,79 +595,311 @@
 // is then linked to a prototype. Finally, the object that was created is
 // automatically returned from the constructor function.  
 
-const Student = function (name, idNumber) {
-    // Instance properties
-    this.name = name
-    this.idNumber = idNumber
+// const Student = function (name, idNumber) {
+//     // Instance properties
+//     this.name = name
+//     this.idNumber = idNumber
 
-    // Instance method: This is bad practice. You should never create a method
-    // inside of a constructor function. Instead, prototypes and prototypal 
-    // inheritance should be used. 
-    // this.calcGrade = function () {
-    //     return "calculated grade"
-    // }
+//     // Instance method: This is bad practice. You should never create a method
+//     // inside of a constructor function. Instead, prototypes and prototypal 
+//     // inheritance should be used. 
+//     // this.calcGrade = function () {
+//     //     return "calculated grade"
+//     // }
+// }
+
+// const mike = new Student("Mike", "ide5658")
+// console.log(mike);
+// const jason = new Student("Jason", "fe6342")
+// const deborah = new Student("Deborah", "td7243")
+
+// const david = "David"
+
+// console.log(jason instanceof Student);
+// console.log(david instanceof Student);
+
+// console.log(Student.prototype);
+
+
+// Student.prototype.calcGrade = function () {
+//     console.log("Grade");
+// }
+
+// console.log(jason.calcGrade());
+
+// // To observe the content of the protype property of the constructor function,
+// // we can get any instance, and add ".__proto__"
+
+// console.log(deborah.__proto__);
+// // Student.prototype is the prototype to be used by all the objects that
+// // are created with the "Student" constructor function.
+// console.log(deborah.__proto__ === Student.prototype);
+// // Another way to check: 
+// console.log(Student.prototype.isPrototypeOf(deborah));
+// console.log(Student.prototype.isPrototypeOf(jason));
+// console.log(Student.prototype.isPrototypeOf(Student));
+
+// // You can set properties on prototypes as well
+// Student.prototype.yearOfEntry = 2022
+// // console.log(jason, mike);
+// // This property is not directly in the object(its in the prototype). So this
+// // is not its "own" property. "Own" properties are the ones declared directly
+// // on the object itself(excluding inherited properties).  
+// console.log(jason.yearOfEntry, mike.yearOfEntry);
+
+// // To check whether the property is an "own" property: 
+// // console.log(jason.hasOwnProperty("name"));
+// // console.log(jason.hasOwnProperty("yearOfEntry"));
+
+// // Person.prototype is not the prototype of Person, but 
+// // Person.prototype.constructor, i.e, the constructor of Person.prototype is
+// // Person()(i.e, the Person constructor function). 
+// // console.log(Student.prototype.constructor);
+// // console.dir(Student.prototype.constructor)
+
+// // Sidenote: "this" is set to the new empty object. "this.name = name" means
+// // that particular new object variable of "name" should be assigned to the
+// // "name" parameter, passed in the constructor function declaration. 
+
+// // This gives you the prototype of the prototype object of the constructor
+// // function(This will give object.prototype, i.e the prototype of the "Object"
+// // constructor itself, since every javascript object has a prototype).
+// console.log(mike.__proto__.__proto__);
+// // This will give 'null', as Object.prototype is the top of the scope chain (
+// // or prototype chain)
+// console.log(mike.__proto__.__proto__.__proto__);
+
+// // This is equivalent to new Array()
+// const arr = [1, 2, 3, 4, 3, 4, 3, 2, 4, 1]
+// console.log(arr.__proto__);
+// console.log(arr.__proto__ === Array.prototype);
+// console.log(arr.__proto__.__proto__);
+
+// // Don't get too much in the habit of doing this because, javascript may
+// // release an update with this same method name. 
+// Array.prototype.unique = function () {
+//     return [...new Set(this)]
+// }
+
+// console.log(arr.unique());
+
+// // Exercise
+
+// function Car(make, speed) {
+//     this.make = make
+//     this.speed = speed
+// }
+
+// Car.prototype.accelerate = function () {
+//     this.speed += 10
+//     console.log(`${this.speed}km/hr`);
+// }
+
+// Car.prototype.brake = function () {
+//     this.speed -= 5
+//     console.log(`${this.speed}km/hr`);
+// }
+
+// car1 = new Car("BMW", 120)
+// car2 = new Car("Mercedes", 95)
+
+// car1.brake()
+// car2.accelerate()
+
+// car2.brake()
+// car1.accelerate()
+
+// car1.brake()
+// car1.brake()
+
+// car2.accelerate()
+// car2.accelerate()
+
+
+// ES6 CLASSES.
+// ES6 classes are not like traditional classes in other programming languages.
+// They still implement prototypal inheritance behind the scenes.
+// These classes are just a special type of functions
+
+// class expression
+// const FootballerCl = class {}
+
+// class declaration
+// When we instantiate this class, the constructor will automatically be 
+// called
+// class FootballerCl {
+//     // This needs to be called "constructor()", that is the syntax
+//     constructor(fullName, shirtNumber) {
+//         this.fullName = fullName
+//         this.shirtNumber = shirtNumber
+//     }
+
+//     // Method will automatically be added to prototype property of class. 
+//     // These are instance methods
+//     calcContributions() {
+//         console.log("800 goal contributions");
+//     }
+
+//     // This is a static method
+//     static getFreekicks() {
+//         console.log(`${this.name} has no freekicks`);
+//     }
+// }
+
+// const haaland = new FootballerCl("Erling Haaland", 9)
+// console.log(haaland);
+// haaland.calcContributions()
+
+// console.log(haaland.__proto__ === FootballerCl.prototype);
+
+// FootballerCl.prototype.score = function () {
+//     console.log(`${this.fullName} has scored`);
+// }
+
+// haaland.score()
+
+// // classes are not hoisted. classes are first class citizens(they can be passed
+// // into functions as argument, and they can be returned from functions) - this
+// // is because in javascript, they are functions with a different syntax. 
+// // classes are executed in strict mode. 
+
+// // Static methods are methods that are applied to the constructor, and not the
+// // prototype of the constructor. For example, "Array.from()" is a static method
+// // applied only to the "Array()" constructor, it is not applied to the 
+// // prototype. That is why you can't use an array name, e.g: listItem.from(). 
+// // You can only use "Array.from()". This shows that the "from()" method has
+// // been passed only to the "Array()" constructor, and not its prototype, since
+// // if it were passed to its prototype, all created arrays would have access to
+// // it. 
+
+
+// FootballerCl.assist = function () {
+//     console.log(`${this.fullName} has given an assist`);
+//     console.log(this);
+// }
+
+// FootballerCl.assist()
+// // This will return an error, since the "assist" method has been passed only
+// // to the FootballerCl constructor, and not its prototype. 
+// // haaland.assist()
+
+// // To add a static method into a class declaration, we add "static" in front
+// // of the method name. 
+// FootballerCl.getFreekicks()
+
+
+// Object.create() function. In object.create(), there is stiil the idea of
+// prototypal inheritance. However, there are no prototype properties involved,
+// and also no constructor functions. We can use object.create() to manually
+// set the object of the prototype to any object we want. 
+
+// const coachProto = {
+//     getTrophies () {
+//         console.log(500);
+//     },
+
+
+//     // This "init" function is not like the one in python, this can have any 
+//     // name. It is just a function that renames the object's properties to 
+//     // the ones passed in this function's parameter
+//     init (name, currentLeague) {
+//         this.name = name
+//         this.currentLeague = currentLeague
+//     }
+// }
+
+// // This creates an object instance to variable name "mourinho", and sets it 
+// // prototype to coachProto
+// const mourinho = Object.create(coachProto)
+// console.log(mourinho.getTrophies);
+// console.log(mourinho);
+// mourinho.name = "Jose Mourinho"
+// mourinho.currentLeague = "Dutch League"
+
+// console.log(mourinho.__proto__);
+// console.log(mourinho.__proto__ === coachProto);
+
+// mourinho.init("Tuchel",  "German")
+// console.log(mourinho);
+
+
+class Car {
+    constructor(make, speed) {
+        this.make = make
+        this.speed = speed
+    }
+
+    accelerate() {
+        this.speed += 10
+        console.log(`${this.make} is going at ${this.speed}km/hr`);
+        
+    }
+
+    brake () {
+        this.speed -= 10
+        console.log(`${this.make} is going ar ${this.speed}km/hr`);
+        
+    }
+
+    get speedUS () {
+        return `${this.speed * 1.6} mi/h`
+    }
+
+    set speedUS (val) {
+        this.speed = val * 1.6
+        
+    }
 }
 
-const mike = new Student("Mike", "ide5658")
-console.log(mike);
-const jason = new Student("Jason", "fe6342")
-const deborah = new Student("Deborah", "td7243")
+const kia = new Car("Kia", 140)
+kia.accelerate()
+console.log(kia.speedUS);
+kia.accelerate()
+kia.accelerate()
+kia.brake()
+kia.brake()
+kia.speedUS = 2
 
-const david = "David"
-
-console.log(jason instanceof Student);
-console.log(david instanceof Student);
-
-console.log(Student.prototype);
+console.log(kia);
 
 
-Student.prototype.calcGrade = function () {
-    console.log("Grade");
+
+// INHERITANCE BETWEEN CLASSES.
+
+
+class Athlete {
+    constructor(fullName, age) {
+        this.fullName = fullName
+        this.age = age
+    }
+
+    static introduce () {
+        return `${this.fullName} is ${this.age} years old`
+    }
 }
 
-console.log(jason.calcGrade());
 
-// To observe the content of the protype property of the constructor function,
-// we can get any instance, and add ".__proto__"
+// Inheritance in action
+// Even without adding the constructor method in the child class, and no code
+// in the child class, the Footballer class will still inherit from the 
+// Athlete class, as long as the statement "class Footballer extends
+// Athlete" is present. 
+class Footballer extends Athlete {
+    constructor (fullName, age, shirtNumber) {
+        // super() is basically the constructor function of the parent class
+        // Calling super() needs to happen first because it is responsible for
+        // creating the "this" keyword in the subclass
+        super(fullName, age)
+        this.shirtNumber = shirtNumber
+    }
 
-console.log(deborah.__proto__);
-// Student.prototype is the prototype to be used by all the objects that
-// are created with the "Student" constructor function.
-console.log(deborah.__proto__ === Student.prototype);
-// Another way to check: 
-console.log(Student.prototype.isPrototypeOf(deborah));
-console.log(Student.prototype.isPrototypeOf(jason));
-console.log(Student.prototype.isPrototypeOf(Student));
+    details () {
+        console.log(`I am ${this.fullName}, my number is ${this.shirtNumber}`);
+    }
+}
 
-// You can set properties on prototypes as well
-Student.prototype.yearOfEntry = 2022
-// console.log(jason, mike);
-// This property is not directly in the object(its in the prototype). So this
-// is not its "own" property. "Own" properties are the ones declared directly
-// on the object itself(excluding inherited properties).  
-console.log(jason.yearOfEntry, mike.yearOfEntry);
-
-// To check whether the property is an "own" property: 
-console.log(jason.hasOwnProperty("name"));
-console.log(jason.hasOwnProperty("yearOfEntry"));
-
-// Person.prototype is not the prototype of Person, but 
-// Person.prototype.constructor, i.e, the constructor of Person.prototype is
-// Person()(i.e, the Person constructor function). 
-
-// Sidenote: "this" is set to the new empty object. "this.name = name" means
-// that particular new object variable of "name" should be assigned to the
-// "name" parameter, passed in the constructor function declaration. 
-
-
-
-
-
-
-
-
-
-
+const mbappe = new Footballer("Kylian Mbappe", 26, 9)
+console.log(mbappe.details());
 
 
 
