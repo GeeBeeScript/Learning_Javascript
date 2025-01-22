@@ -1,4 +1,3 @@
-
 // JavaScript functions (separate course)
 // function evaluate(a, b, c) {
 //     return a + b / c
@@ -21,7 +20,7 @@
 // restExample("a","b","c","d","e","f","g")
 
 // const sum = function (x, y) {
-//     return x + y    
+//     return x + y
 // }
 
 // Arrow functions
@@ -29,7 +28,7 @@
 //     return x + y
 // }
 
-// const sum = (x, y) => x + y 
+// const sum = (x, y) => x + y
 
 // const restExample = (x, ...y) => {
 //     console.log(x);
@@ -37,7 +36,7 @@
 // }
 
 // Calling the function "logMe(a, b)" after inputting arguments will result in
-// an undefined error of the name "logMe". This is because as far as this 
+// an undefined error of the name "logMe". This is because as far as this
 // statement is concerned, "logMe" is now undefined. You should call the function
 // using "value()"
 // let value = function logMe (a, b) {
@@ -88,7 +87,7 @@
 // console.log(randomFunc(cb));
 
 // Higher order functions are functions that take one or more functions as an
-// argument, and or returns a function. 
+// argument, and or returns a function.
 
 // function getValue(value) {
 //     value()
@@ -98,8 +97,7 @@
 //     return console.log("hi");
 // })
 
-
-// A pure function is a function that produces the same output for the same 
+// A pure function is a function that produces the same output for the same
 // input
 
 // function greetMe(name) {
@@ -121,17 +119,15 @@
 
 // console.log(greet("Prince"));
 
-
 // Immediately Invoked function expressions (IIFE). In IIFEs the code inside
-// the function expression get executed immediately after the function is 
-// defined. 
+// the function expression get executed immediately after the function is
+// defined.
 
 // (function () {
 //     console.log("This is an IIFE");
 // }) ()
 
-
-// Recursion occurs when a function calls itself repeatedly. When using 
+// Recursion occurs when a function calls itself repeatedly. When using
 // recursions, you should always have a base condition. A base condition is a
 // specified condition to be satisfied in order for the recursion to stop.
 
@@ -159,37 +155,35 @@
 //     recurse()
 // }
 
-
 // count = 5
 
 // function setCount() {
 //     if (count === 0) {
 //         console.log("count is zero");
-//         return 
+//         return
 //     }
 //     console.log("count is being set. Current value: " + count);
 //     count--
-    
+
 //     setCount()
 // }
 
 // setCount()
 
-
 // OBJECT ORIENTED PROGRAMMING (separate course)
 // It is a style of programming or a programming paradigm. The 4 pillars of
-// object oriented programming include, encapsulation, abstraction, inheritance 
+// object oriented programming include, encapsulation, abstraction, inheritance
 // and polymorphism. Before oop, procedural programming was mainly used - it
 // essentially involved separating your code into functions. Procedural
 // programming has the main disadvantage of changing code in various functions
-// when a minor adjustment is made, since the functions are inter-dependent. 
+// when a minor adjustment is made, since the functions are inter-dependent.
 // OOP, solving this problem, combines a group of related variables into one
 // unit - called an object. The variables in objects are called properties.
-// and the functions in objects are called methods. For example, the 
+// and the functions in objects are called methods. For example, the
 // localStorage object has a property called length, which gives the length
-// of items in the localStorage. It has methods like getItem() and setItem(). 
+// of items in the localStorage. It has methods like getItem() and setItem().
 // In OOPs we group related variables and functions that operate on them into
-// objects(this is called Encapsulation). 
+// objects(this is called Encapsulation).
 
 // Below is procedural methodology in practice
 
@@ -204,8 +198,8 @@
 
 // // Below is OOP methodology in practice. Notice how a javascript object
 // // (dictionary in python) is used to keep the related variables and functions
-// // together. Also in OOPs, your functions tend to have fewer parameters when 
-// // compared to their procedural counterparts. 
+// // together. Also in OOPs, your functions tend to have fewer parameters when
+// // compared to their procedural counterparts.
 
 // let employeeDetails = {
 //     salary: 40000,
@@ -217,28 +211,28 @@
 
 // console.log(employeeDetails.salaryToBePaid())
 
-// Abstraction is essentially hiding some of the properties and methods from 
-// the outside code. This has the advantage of making the code simpler, and 
-// reducing the impact of future changes on properties and functions. 
+// Abstraction is essentially hiding some of the properties and methods from
+// the outside code. This has the advantage of making the code simpler, and
+// reducing the impact of future changes on properties and functions.
 
 // Inheritance allows you to eliminate redundant code from multiple objects.
 // You can 'inherit' previously defined properties and methods(characteristics
-// and functionality) from former objects. 
+// and functionality) from former objects.
 
 // Polymorphism. "Poly" means "many", and "morph" means "forms". Polymorphism
 // means "many forms". Polymorphism helps eliminate long "if-else" or "switch
-// -case" statements. 
+// -case" statements.
 
 // An object(dictionary equivalent in python) is a collection of key-value
 // pairs, and is signified by this '{}' symbol - which is called an object
 // literal syntax. In OOP, properties are used to hold values, while methods
-// (functions) are used to define logic. Duplicating an object that has a 
+// (functions) are used to define logic. Duplicating an object that has a
 // method is not advisable(i.e creating multiple objects that have the same
-// method), because if there is an error within the method, you'll have to 
-// fix the error in multiple places. That being said, if an object has at 
-// least one function, that means it is considered to have 'behaviour', it 
-// best practice to use a Constructor Function rather than duplicating the 
-// object. For example: 
+// method), because if there is an error within the method, you'll have to
+// fix the error in multiple places. That being said, if an object has at
+// least one function, that means it is considered to have 'behaviour', it
+// best practice to use a Constructor Function rather than duplicating the
+// object. For example:
 
 // This is an object with properties and methods
 // const point = {
@@ -264,17 +258,16 @@
 //     }
 // }
 
-
 // Factory Function: We can use this method
 
 // function createPoint (width) {
 //     return {
 //         // width: 2,
 //         // width: width,
-//         width, 
-//         //This is equivalent to width: width. This syntax is from ES6, and is used 
+//         width,
+//         //This is equivalent to width: width. This syntax is from ES6, and is used
 //         // when the key and value have the same name. 'location' was removed to
-//         // simplify code. 
+//         // simplify code.
 //         plot: function () {
 //             console.log("Plotted");
 //         }
@@ -284,18 +277,17 @@
 // const point1 = createPoint(1)
 // console.log(point1);
 
-
 // Constructor Function. We can also use a constructor function. When defining
 // a constructor function, the function name is capitalized. This looks like a
-// traditional class, but in javascript, the concept of classes do not exist. 
+// traditional class, but in javascript, the concept of classes do not exist.
 // When instantiating a new object using the constructor function, add the
-// keyword 'new' in front of the constructor function name. 'new' creates a 
+// keyword 'new' in front of the constructor function name. 'new' creates a
 // new object ({}), and 'this' in the constructor function applies to that
 // new object. If you don't apply new during instantiation, 'this' will apply
 // to the default global object, and in javascript, the default global object
-// is the DOMs 'window' object. 
+// is the DOMs 'window' object.
 
-// You can decide to use either factory or constructor function syntax. 
+// You can decide to use either factory or constructor function syntax.
 
 // function Point (width) {
 //     this.width = width,
@@ -307,18 +299,18 @@
 // const point1 = new Point(3)
 
 // Every object, datatype, item in javascript has a property called 'constructor',
-// that references the function that was used to create the object. 
+// that references the function that was used to create the object.
 
 // console.log(point1.constructor);
 
 // let y = {}
 // Behind the scenes, javascript translates it as, let y = new Object().
-// Javascript also has other built-in constructors like: 
+// Javascript also has other built-in constructors like:
 // new String(), which we usually use string literals to represent - "", '', ``
 // new Boolean(), we usually use boolean literals to represent - true, false
-// new Number(), we use number literals to represent - 1, 2, 3, 4 
+// new Number(), we use number literals to represent - 1, 2, 3, 4
 // Functions are also objects(they are translated as objects by javascript, just
-// like other data types). 
+// like other data types).
 
 // function Point (width) {
 //     this.width = width,
@@ -337,9 +329,8 @@
 //     }`
 // )
 
-
-// Value types(or primitives) include: Number, String, Boolean, Symbol(ES6), 
-// undefined, null. 
+// Value types(or primitives) include: Number, String, Boolean, Symbol(ES6),
+// undefined, null.
 // Reference types include: Object, Function, Array.
 // Since function and array are also objects, we have: primitives and objects.
 
@@ -351,7 +342,7 @@
 // x = 10
 // console.log(x);
 // console.log(y);
-// x and y are independent, i.e they behave normally. 
+// x and y are independent, i.e they behave normally.
 
 // Reference type
 
@@ -366,11 +357,11 @@
 // They are dependent, as reference types are stored separately in memory,
 // and any reassignment goes to the same value goes to that same memory address.
 // As such, any change to the values from any variable that has access, will
-// result to a change to the values in memory(only one reference). Once that 
+// result to a change to the values in memory(only one reference). Once that
 // is changed, all variables that have access will have their values modified
 // (i.e, it does not behave normally).
 // Basically, primitives are copied by their value, and objects are copied by
-// their reference. 
+// their reference.
 
 // Another example
 
@@ -384,9 +375,8 @@
 // increase(number)
 // console.log(number);
 
-
 // obj parameter(not argument) points to 'obj' variable, and changes it(does
-// not behave normally, because it is a reference type). 
+// not behave normally, because it is a reference type).
 // let obj = {value: 7}
 
 // function increase (obj) {
@@ -406,7 +396,7 @@
 // const point1 = new Point()
 
 // // With this method, you can dynamically add new properties (since it return
-// // an object). 
+// // an object).
 
 // // point1.location = {x: 0.74, y: 2.5}
 // // You can also use bracket notation
@@ -414,14 +404,13 @@
 
 // console.log(point1);
 
-// // To delete a property from an existing object, we can use: 
+// // To delete a property from an existing object, we can use:
 
 // delete point1["location"]
 // console.log(point1);
 
-
 // Abstraction: To make some methods or properties inaccessible, i.e hide the
-// details or complexity and show only the essentials or necessaries. 
+// details or complexity and show only the essentials or necessaries.
 
 // The principles of abstraction have been implemented here, as "defaultLocation"
 // and "computeOptimalLocation()" are not accessible outside the constructor
@@ -481,11 +470,9 @@
 // point1.defaultLocation = {x: 1.7, y: 2.5}
 // console.log(point1.defaultLocation);
 
-
 // point1.plot()
 
 // console.log(point1);
-
 
 // function StopWatch() {
 //     let duration = 0
@@ -499,9 +486,9 @@
 //         }
 //         hasStarted = true
 //         hasStopped = false
-//         getStartTime = new Date().getTime()   
+//         getStartTime = new Date().getTime()
 //         console.log(getStartTime / 1000);
-        
+
 //     }
 
 //     this.stop = function () {
@@ -514,7 +501,7 @@
 //         getCurrTime = ((new Date().getTime()) - getStartTime) / toSeconds
 //         duration += getCurrTime
 //         console.log(new Date().getTime() / 1000);
-        
+
 //     }
 
 //     this.reset = function () {
@@ -533,67 +520,64 @@
 
 // const sw = new StopWatch()
 
-
-
 // OOP (separate course)
-// OOP is a programming paradigm (style of writing code) that is based on 
+// OOP is a programming paradigm (style of writing code) that is based on
 // the concept of objects. We can use objects to model real-world or abstract
-// features, for example, user, to-do list item, html component or data 
+// features, for example, user, to-do list item, html component or data
 // structure. Objects can contain data (properties) and code (methods). Objects
 // are building blocks of applications, and they interact with one another.
-//  OOP was developed with the goal of organizing code, to make it more 
-// flexible and easier to maintain. 
+//  OOP was developed with the goal of organizing code, to make it more
+// flexible and easier to maintain.
 // The four fundamental principles that can guide us toward a good class
 // implementation include: Abstraction, Encapsulation, Inheritance and
-// Polymorphism. 
+// Polymorphism.
 // Abstraction involvs ignoring or hiding details that don't matter from the user.
-// It allows users to get an overview of what we are implementing, without 
+// It allows users to get an overview of what we are implementing, without
 // going into details that don't matter to them
 // Encapsulation essentially involves keeping methods and properties private
-// inside a class, so they are not accessible from outside the class. 
+// inside a class, so they are not accessible from outside the class.
 // Inheritance makes all properties and methods of a certain class, available
-// to a child class, forming a hierarchical relationship between classes. The 
-// child class can also have its own separate properties and methods. 
-// Polymorphism means that a child class can overwrite the method inherited 
-// from a parent class. 
+// to a child class, forming a hierarchical relationship between classes. The
+// child class can also have its own separate properties and methods.
+// Polymorphism means that a child class can overwrite the method inherited
+// from a parent class.
 // The process of creating a new instance from a class or constructor function
 // is called, "instantiation". The objects created from a class are called
-// "instances". 
+// "instances".
 // PROTOTYPES
-// All objects in javascript are linked to a certain prototype object. So, we 
-// can say that each object has a prototype. The prototype object contains 
+// All objects in javascript are linked to a certain prototype object. So, we
+// can say that each object has a prototype. The prototype object contains
 // methods and properties that all the objects linked to that prototype can
-// access and use(this behaviour is called prototypal inheritance). This is 
+// access and use(this behaviour is called prototypal inheritance). This is
 // different from the inheritance pillar in OOP. Basically, objects inherit
-// methods and properties from the prototype(this is why it is called 
-// prorotypal inheritance). This is basically an instance inheriting from a 
+// methods and properties from the prototype(this is why it is called
+// prorotypal inheritance). This is basically an instance inheriting from a
 // class. Objects delegate their behaviour(methods) to the linked prototype
-// object. In classical oop(i.e, in normal classes), the methods are copied 
-// from the class to the object, which is different. 
+// object. In classical oop(i.e, in normal classes), the methods are copied
+// from the class to the object, which is different.
 // The 3 ways of implementing prototypal inheritance in javascript include,
-// Constructor functions, ES6 classes and the Object.create() method. 
-// Constructor functions are a technique to create objects from a function. 
-// This is how built-in methods like Array, map and set are implemented. 
-// ES6 classes are a modern alternative to the constructor function syntax. 
-// Behind the scenes, ES6 classes work exactly like constructor functions. 
-// They are essentially constructor functions with a different syntax. 
-// ES6 classes do not behave like the classes in normal OOPs. 
+// Constructor functions, ES6 classes and the Object.create() method.
+// Constructor functions are a technique to create objects from a function.
+// This is how built-in methods like Array, map and set are implemented.
+// ES6 classes are a modern alternative to the constructor function syntax.
+// Behind the scenes, ES6 classes work exactly like constructor functions.
+// They are essentially constructor functions with a different syntax.
+// ES6 classes do not behave like the classes in normal OOPs.
 // Object.create() method is the most straightforward way of linking an object
-// to a prototype object. However, it is not as used as the other two methods. 
-// Arrow functions will not work as a constructor function, because arrow 
-// functions do not have their own "this" keyword. 
-
+// to a prototype object. However, it is not as used as the other two methods.
+// Arrow functions will not work as a constructor function, because arrow
+// functions do not have their own "this" keyword.
 
 // const Student = function (name, idNumber) {
 //     console.log(this);
 // }
 
 // new Student("Mike", "ide5658")
-// When constructor function is created: 
+// When constructor function is created:
 // A new empty objected is created, then the function is called, and the "this"
 // keyword is set to the newly created, empty object. The newly created object
 // is then linked to a prototype. Finally, the object that was created is
-// automatically returned from the constructor function.  
+// automatically returned from the constructor function.
 
 // const Student = function (name, idNumber) {
 //     // Instance properties
@@ -601,8 +585,8 @@
 //     this.idNumber = idNumber
 
 //     // Instance method: This is bad practice. You should never create a method
-//     // inside of a constructor function. Instead, prototypes and prototypal 
-//     // inheritance should be used. 
+//     // inside of a constructor function. Instead, prototypes and prototypal
+//     // inheritance should be used.
 //     // this.calcGrade = function () {
 //     //     return "calculated grade"
 //     // }
@@ -620,7 +604,6 @@
 
 // console.log(Student.prototype);
 
-
 // Student.prototype.calcGrade = function () {
 //     console.log("Grade");
 // }
@@ -634,7 +617,7 @@
 // // Student.prototype is the prototype to be used by all the objects that
 // // are created with the "Student" constructor function.
 // console.log(deborah.__proto__ === Student.prototype);
-// // Another way to check: 
+// // Another way to check:
 // console.log(Student.prototype.isPrototypeOf(deborah));
 // console.log(Student.prototype.isPrototypeOf(jason));
 // console.log(Student.prototype.isPrototypeOf(Student));
@@ -644,22 +627,22 @@
 // // console.log(jason, mike);
 // // This property is not directly in the object(its in the prototype). So this
 // // is not its "own" property. "Own" properties are the ones declared directly
-// // on the object itself(excluding inherited properties).  
+// // on the object itself(excluding inherited properties).
 // console.log(jason.yearOfEntry, mike.yearOfEntry);
 
-// // To check whether the property is an "own" property: 
+// // To check whether the property is an "own" property:
 // // console.log(jason.hasOwnProperty("name"));
 // // console.log(jason.hasOwnProperty("yearOfEntry"));
 
-// // Person.prototype is not the prototype of Person, but 
+// // Person.prototype is not the prototype of Person, but
 // // Person.prototype.constructor, i.e, the constructor of Person.prototype is
-// // Person()(i.e, the Person constructor function). 
+// // Person()(i.e, the Person constructor function).
 // // console.log(Student.prototype.constructor);
 // // console.dir(Student.prototype.constructor)
 
 // // Sidenote: "this" is set to the new empty object. "this.name = name" means
 // // that particular new object variable of "name" should be assigned to the
-// // "name" parameter, passed in the constructor function declaration. 
+// // "name" parameter, passed in the constructor function declaration.
 
 // // This gives you the prototype of the prototype object of the constructor
 // // function(This will give object.prototype, i.e the prototype of the "Object"
@@ -676,7 +659,7 @@
 // console.log(arr.__proto__.__proto__);
 
 // // Don't get too much in the habit of doing this because, javascript may
-// // release an update with this same method name. 
+// // release an update with this same method name.
 // Array.prototype.unique = function () {
 //     return [...new Set(this)]
 // }
@@ -715,7 +698,6 @@
 // car2.accelerate()
 // car2.accelerate()
 
-
 // ES6 CLASSES.
 // ES6 classes are not like traditional classes in other programming languages.
 // They still implement prototypal inheritance behind the scenes.
@@ -725,7 +707,7 @@
 // const FootballerCl = class {}
 
 // class declaration
-// When we instantiate this class, the constructor will automatically be 
+// When we instantiate this class, the constructor will automatically be
 // called
 // class FootballerCl {
 //     // This needs to be called "constructor()", that is the syntax
@@ -734,7 +716,7 @@
 //         this.shirtNumber = shirtNumber
 //     }
 
-//     // Method will automatically be added to prototype property of class. 
+//     // Method will automatically be added to prototype property of class.
 //     // These are instance methods
 //     calcContributions() {
 //         console.log("800 goal contributions");
@@ -760,18 +742,17 @@
 
 // // classes are not hoisted. classes are first class citizens(they can be passed
 // // into functions as argument, and they can be returned from functions) - this
-// // is because in javascript, they are functions with a different syntax. 
-// // classes are executed in strict mode. 
+// // is because in javascript, they are functions with a different syntax.
+// // classes are executed in strict mode.
 
 // // Static methods are methods that are applied to the constructor, and not the
 // // prototype of the constructor. For example, "Array.from()" is a static method
-// // applied only to the "Array()" constructor, it is not applied to the 
-// // prototype. That is why you can't use an array name, e.g: listItem.from(). 
+// // applied only to the "Array()" constructor, it is not applied to the
+// // prototype. That is why you can't use an array name, e.g: listItem.from().
 // // You can only use "Array.from()". This shows that the "from()" method has
 // // been passed only to the "Array()" constructor, and not its prototype, since
 // // if it were passed to its prototype, all created arrays would have access to
-// // it. 
-
+// // it.
 
 // FootballerCl.assist = function () {
 //     console.log(`${this.fullName} has given an assist`);
@@ -780,27 +761,25 @@
 
 // FootballerCl.assist()
 // // This will return an error, since the "assist" method has been passed only
-// // to the FootballerCl constructor, and not its prototype. 
+// // to the FootballerCl constructor, and not its prototype.
 // // haaland.assist()
 
 // // To add a static method into a class declaration, we add "static" in front
-// // of the method name. 
+// // of the method name.
 // FootballerCl.getFreekicks()
-
 
 // Object.create() function. In object.create(), there is stiil the idea of
 // prototypal inheritance. However, there are no prototype properties involved,
 // and also no constructor functions. We can use object.create() to manually
-// set the object of the prototype to any object we want. 
+// set the object of the prototype to any object we want.
 
 // const coachProto = {
 //     getTrophies () {
 //         console.log(500);
 //     },
 
-
-//     // This "init" function is not like the one in python, this can have any 
-//     // name. It is just a function that renames the object's properties to 
+//     // This "init" function is not like the one in python, this can have any
+//     // name. It is just a function that renames the object's properties to
 //     // the ones passed in this function's parameter
 //     init (name, currentLeague) {
 //         this.name = name
@@ -808,7 +787,7 @@
 //     }
 // }
 
-// // This creates an object instance to variable name "mourinho", and sets it 
+// // This creates an object instance to variable name "mourinho", and sets it
 // // prototype to coachProto
 // const mourinho = Object.create(coachProto)
 // console.log(mourinho.getTrophies);
@@ -822,84 +801,302 @@
 // mourinho.init("Tuchel",  "German")
 // console.log(mourinho);
 
-
 class Car {
-    constructor(make, speed) {
-        this.make = make
-        this.speed = speed
-    }
+  constructor(make, speed) {
+    this.make = make;
+    this.speed = speed;
+  }
 
-    accelerate() {
-        this.speed += 10
-        console.log(`${this.make} is going at ${this.speed}km/hr`);
-        
-    }
+  accelerate() {
+    this.speed += 10;
+    console.log(`${this.make} is going at ${this.speed}km/hr`);
+  }
 
-    brake () {
-        this.speed -= 10
-        console.log(`${this.make} is going ar ${this.speed}km/hr`);
-        
-    }
+  brake() {
+    this.speed -= 10;
+    console.log(`${this.make} is going ar ${this.speed}km/hr`);
+  }
 
-    get speedUS () {
-        return `${this.speed * 1.6} mi/h`
-    }
+  get speedUS() {
+    return `${this.speed * 1.6} mi/h`;
+  }
 
-    set speedUS (val) {
-        this.speed = val * 1.6
-        
-    }
+  set speedUS(val) {
+    this.speed = val * 1.6;
+  }
 }
 
-const kia = new Car("Kia", 140)
-kia.accelerate()
+const kia = new Car("Kia", 140);
+kia.accelerate();
 console.log(kia.speedUS);
-kia.accelerate()
-kia.accelerate()
-kia.brake()
-kia.brake()
-kia.speedUS = 2
+kia.accelerate();
+kia.accelerate();
+kia.brake();
+kia.brake();
+kia.speedUS = 2;
 
 console.log(kia);
 
-
-
 // INHERITANCE BETWEEN CLASSES.
 
+// class Athlete {
+//     constructor(fullName, age) {
+//         this.fullName = fullName
+//         this.age = age
+//     }
 
-class Athlete {
-    constructor(fullName, age) {
-        this.fullName = fullName
-        this.age = age
-    }
-
-    static introduce () {
-        return `${this.fullName} is ${this.age} years old`
-    }
-}
-
+//     introduce () {
+//         return `${this.fullName} is ${this.age} years old`
+//     }
+// }
 
 // Inheritance in action
 // Even without adding the constructor method in the child class, and no code
-// in the child class, the Footballer class will still inherit from the 
+// in the child class, the Footballer class will still inherit from the
 // Athlete class, as long as the statement "class Footballer extends
-// Athlete" is present. 
-class Footballer extends Athlete {
-    constructor (fullName, age, shirtNumber) {
-        // super() is basically the constructor function of the parent class
-        // Calling super() needs to happen first because it is responsible for
-        // creating the "this" keyword in the subclass
-        super(fullName, age)
-        this.shirtNumber = shirtNumber
-    }
+// Athlete" is present.
+// class Footballer extends Athlete {
+//     constructor (fullName, age, shirtNumber) {
+//         // super() is basically the constructor function of the parent class
+//         // Calling super() needs to happen first because it is responsible for
+//         // creating the "this" keyword in the subclass
+//         super(fullName, age)
+//         this.shirtNumber = shirtNumber
+//     }
 
-    details () {
-        console.log(`I am ${this.fullName}, my number is ${this.shirtNumber}`);
-    }
+//     details () {
+//         console.log(`I am ${this.fullName}, my number is ${this.shirtNumber}`);
+//     }
+
+//     introduce () {
+//         return `Hi, I'm ${this.fullName}`
+//     }
+// }
+
+// const mbappe = new Footballer("Kylian Mbappe", 26, 9)
+// console.log(mbappe.details());
+// console.log(mbappe);
+// console.log(mbappe.introduce());
+
+// const federer = new Athlete("Roger Federer", 45, 2)
+// console.log(federer.introduce());
+
+// Inheritance between "Classes" using Object.create().
+
+// const AthleteProto = {
+//     getAge () {
+//         console.log(`I am ${this.age} years old`);
+//     },
+
+//     init (fullName, age) {
+//         this.fullName = fullName
+//         this.age = age
+//     }
+// }
+
+// const hill = Object.create(AthleteProto)
+// console.log(hill);
+
+// const FootballerProto = Object.create(AthleteProto)
+// const vanDijk = Object.create(FootballerProto)
+// console.log(vanDijk);
+
+// FootballerProto.init = function (fullName, age, shirtNumber) {
+//     // This will set the objects passed in parameter to constructor function's
+//     // parameter
+//     AthleteProto.init.call(this, fullName, age)
+//     this.shirtNumber = shirtNumber
+// }
+
+// FootballerProto.introduce = function () {
+//     console.log(`I am ${this.fullName}, and my Number is ${this.shirtNumber}`);
+// }
+
+// const jadon = Object.create(FootballerProto)
+// jadon.init("Jadon Sancho", 24, 17)
+// console.log(jadon);
+// jadon.introduce()
+
+// Encapsulation basically means keeping some properties private. You can
+// protect some properties and methods by adding an underscore before the
+// name of the property or method.
+
+// Encapsulation: Private class fields and methods. We have:
+// Public fields, Private fields, Public methods and Private methods. The idea
+// of private and public fields and methods implemented with the syntax below
+// is a proposed update, established javascript syntax.
+
+// class Account {
+//     // Below is a public field. The variable name does not need to be declared,
+//     // only assigned. Public fields will be present on all class intances, but
+//     // they will not be present on the class' prototype.
+//     locale = navigator.language
+
+//     // private field. Denoted by starting variable or method name with "#".
+//     // private fields cannot be accessed outside the class.
+//     #chargeHistory = [70, -50]
+//     // Since the pin is passed in the constructor function, and we want to make
+//     // it private (which can only be done outside the constructor function),
+//     // we can define the variable without assigning it
+//     #pin
+
+//     constructor(fullName, currency, pin) {
+//         this.fullName = fullName
+//         this.currency = currency
+//         // pin here is now a protected property, that is, you or others working
+//         // with this code later know not to access it outside the class
+//         // this._pin = pin
+//         // To make the pin private,
+//         this.#pin = pin
+//     }
+
+//     // _approveLoan is now a protected property. Note that adding an underscore
+//     // to denote a protected property is not javascript syntax. It is a convention
+//     // to physically deonte protected properties, and not syntax.
+//     _approveLoan(val) {
+//         return true
+//     }
+
+//     // This is a public method. We can say that this method is part of the public
+//     // interface of the class.
+//     getCurrency () {
+//         console.log(`This account's currency is ${this.currency}`);
+//     }
+// }
+
+// const acc1 = new Account("David Daniel", "USD", 4347 )
+
+// This will return an error message, because it is a private field, and should
+// not be accessed outside the class.
+// console.log(acc1.#chargeHistory);
+
+// Method chaining. We can chain methods using the following syntax.
+
+// class Account {
+//     // Below is a public field. The variable name does not need to be declared,
+//     // only assigned. Public fields will be present on all class intances, but
+//     // they will not be present on the class' prototype.
+//     locale = navigator.language
+
+//     // private field. Denoted by starting variable or method name with "#".
+//     // private fields cannot be accessed outside the class.
+//     #chargeHistory = [70, -50]
+//     // Since the pin is passed in the constructor function, and we want to make
+//     // it private (which can only be done outside the constructor function),
+//     // we can define the variable without assigning it
+//     #pin
+
+//     constructor(fullName, currency, balance, pin) {
+//         this.fullName = fullName
+//         this.currency = currency
+//         this.balance = balance
+//         // pin here is now a protected property, that is, you or others working
+//         // with this code later know not to access it outside the class
+//         // this._pin = pin
+//         // To make the pin private,
+//         this.#pin = pin
+//     }
+
+//     // _approveLoan is now a protected property. Note that adding an underscore
+//     // to denote a protected property is not javascript syntax. It is a convention
+//     // to physically deonte protected properties, and not syntax.
+//     _approveLoan(val) {
+//         return true
+//     }
+
+//     // This is a public method. We can say that this method is part of the public
+//     // interface of the class.
+//     getCurrency () {
+//         console.log(`This account's currency is ${this.currency}`);
+//     }
+
+//     deposit (amount) {
+//         this.balance += amount
+//         // returning "this" makes the object chainable.
+//         return this
+//     }
+
+//     withdraw (amount) {
+//         if (this.balance > amount) {
+//             this.balance -= amount
+//             console.log(`${amount} ${this.currency} has been withdrawn`);
+//         }
+//         return this
+//     }
+
+//     requestLoan (amount) {
+//         console.log(this.balance);
+//         if (this.balance < amount) {
+//             console.log("You request for a loan has been granted successfully");
+//         }
+//         return this
+//     }
+// }
+
+// const acc1 = new Account("David Daniel", "USD", 400000, 4347)
+
+// console.log(acc1.getCurrency());
+
+// // Chaining
+// acc1.deposit(7000).deposit(8000).withdraw(300).requestLoan(500);
+
+// Exercise
+class CarCl {
+  constructor(make, speed) {
+    this.make = make;
+    this.speed = speed;
+  }
+
+  brake() {
+    this.speed -= 5;
+  }
+
+  accelerate(val) {
+    this.speed += val;
+  }
 }
 
-const mbappe = new Footballer("Kylian Mbappe", 26, 9)
-console.log(mbappe.details());
+class EvCl extends CarCl {
+  #charge;
+  constructor(make, speed, charge) {
+    super(make, speed);
+    this.#charge = charge;
+  }
+
+  accelerate() {
+    this.speed += 10;
+    console.log(`You are moving at ${this.speed}km/hr`);
+    return this;
+  }
+
+  brake() {
+    this.speed -= 5;
+    console.log(`Your speed is now ${this.speed}km/hr`);
+    return this;
+  }
+
+  chargeBattery(chargeTo) {
+    let chargeVal = this.#charge;
+    chargeVal += chargeTo;
+    if (chargeVal <= 100) {
+      this.#charge += chargeTo;
+      console.log(
+        `${chargeTo}% has been added to your battery percentage. New Percentage is ${
+          this.#charge
+        }%`
+      );
+    } else {
+      throw new Error(`Charge value is ${this.#charge}%. Add a lower amount`);
+    }
+    return this;
+  }
+}
+
+const rivian = new EvCl("Rivian", 160, 70);
+
+console.log(
+  rivian.accelerate().accelerate().brake().accelerate().chargeBattery(30)
+);
 
 
 
@@ -910,18 +1107,19 @@ console.log(mbappe.details());
 
 
 
-// Web Storage API - they are methods of storage provided by the browser. 
+
+// Web Storage API - they are methods of storage provided by the browser.
 // Some examples include localStorage and sessionStorage. There are default
 // methods for these web storage API (localStorage and sessionStorage). Some
 // of which include: setItem, getItem, removeItem, clear.
-// sessionStorage keeps the info only while the tab is still open, while 
-// localStorage keeps the info even when you open and close the browser. 
-// When you set itemss with the same variable names for local storage, the 
-// old variable name will be overwritten. 
+// sessionStorage keeps the info only while the tab is still open, while
+// localStorage keeps the info even when you open and close the browser.
+// When you set itemss with the same variable names for local storage, the
+// old variable name will be overwritten.
 
 // local storage by defualt saves our values in JSON string. Naturally to save
 // items in local storage we should convert to JSON string (we can use
-// JSON.stringify()) for this. To convert items from JSON string to the data 
+// JSON.stringify()) for this. To convert items from JSON string to the data
 // type with which they were originally stored, we can use JSON.parse().
 
 // localStorage.setItem("name", "David")
@@ -929,7 +1127,6 @@ console.log(mbappe.details());
 
 // localStorage.setItem("name", "Bianca")
 // localStorage.setItem("name", "Austin")
-
 
 // localStorage.setItem("age", 42)
 // localStorage.setItem("job", "Digital Marketer")
@@ -945,7 +1142,6 @@ console.log(mbappe.details());
 
 // localStorage.clear()
 // console.log(localStorage.getItem("name"));
-
 
 // const kitchenEquipment = ["spoon", "spatula", "frying pan"]
 // // localStorage.setItem("kitchenEquipment", kitchenEquipment)
@@ -976,15 +1172,6 @@ console.log(mbappe.details());
 
 // localStorage.clear()
 
-
-
-
-
-
-
-
-
-
 // Events
 // addEventListener(typeOfEvent, callbackFunction)
 
@@ -1012,11 +1199,10 @@ console.log(mbappe.details());
 // // You should make a reference to the function instead
 // button.addEventListener('click', addStyling)
 
-
-// click - fires after full action occurs. 'mousedown' - fires when button 
+// click - fires after full action occurs. 'mousedown' - fires when button
 // is pressed. 'mouseup' fires when button is released. 'mouseenter' fires
-// when we move onto the area of the element. 'mouseleave' fires when we 
-// moved out of the area of the element. 
+// when we move onto the area of the element. 'mouseleave' fires when we
+// moved out of the area of the element.
 
 // const button = document.querySelector("#random-btn")
 // const h1 = document.querySelector("h1")
@@ -1041,38 +1227,36 @@ console.log(mbappe.details());
 //     console.log("mouseleave");
 // })
 
-
 // // 'keypress' fires when key is pressed. 'keydown' fires while key is pressed
-// //  down(held). 'keyup' fires when key is released. 
+// //  down(held). 'keyup' fires when key is released.
 
 // const input = document.getElementById("name")
 
 // // input.addEventListener("keypress", function () {
 // //     console.log("You pressed a key");
-    
+
 // // })
 
 // // input.addEventListener("keydown", function () {
 // //     console.log("You pressed a key");
-    
+
 // // })
 
 // input.addEventListener("keyup", function () {
 //     console.log("You pressed a key");
 //     console.log(input.value);
-    
+
 // })
 
-
-// The event object argument can be represented as just "e"(if you wish, but 
+// The event object argument can be represented as just "e"(if you wish, but
 // it is relatively general usage). You can use this event object arguemnt to
-// get information about the triggered event. You can use event.type, 
-// event.currentTarget etc. 
+// get information about the triggered event. You can use event.type,
+// event.currentTarget etc.
 // preventDefault() - prevents the default behaviour of the html element from
-// occuring. 
-// A replacement to event, "e", for selecting elements, is 'this' keyword. 
+// occuring.
+// A replacement to event, "e", for selecting elements, is 'this' keyword.
 // A disadvantage to using 'this' keyword is that you can't use it with
-// arrow functions. 
+// arrow functions.
 
 // const btn = document.querySelector("button")
 
@@ -1092,13 +1276,12 @@ console.log(mbappe.details());
 // } )
 
 // currentTarget - always refers to the element which the event handleer has
-// been attached to. 
-// target - identifies the element on which the event occured. 
+// been attached to.
+// target - identifies the element on which the event occured.
 
-
-// Event bubbling and event capturing. 
-// event bubbling - click element first, then bubbles up - default. 
-// event capturing - fires at the root, then fires untill reaches target. 
+// Event bubbling and event capturing.
+// event bubbling - click element first, then bubbles up - default.
+// event capturing - fires at the root, then fires untill reaches target.
 
 // const con = document.querySelector(".con")
 // const listItems = document.querySelector("#li-items-con")
@@ -1120,7 +1303,6 @@ console.log(mbappe.details());
 // document.addEventListener('click', showBubbling, {"capture": true})
 // window.addEventListener('click', showBubbling, {"capture": true})
 
-
 // Form submission(preventing default behaviour, and getting values)
 
 // const form = document.getElementById("form")
@@ -1132,9 +1314,8 @@ console.log(mbappe.details());
 //     e.preventDefault()
 //     console.log(name.value);
 //     console.log(password.value);
-    
-// })
 
+// })
 
 // Traversing the DOM Tree
 // childnodes - returns all child nodes, including whitespace which is treated
@@ -1162,7 +1343,6 @@ console.log(mbappe.details());
 // // const second = first.nextSibling.nextSibling;
 // const second = (first.nextSibling.nextSibling.style.color = "violet");
 
-
 // console.log(second);
 
 // const last = document.querySelector(".second-to-last")
@@ -1179,10 +1359,9 @@ console.log(mbappe.details());
 // first.nextElementSibling.style.color = 'gold'
 // console.log(first.previousElementSibling)
 
-
 // We can use nodeValue or textContent to get the text in an HTML element
 // elementIdentifier.nodeValue returns a node list with a value of text and
-// length. 
+// length.
 
 // const h1 = document.getElementById("title")
 // const item = h1.nodeValue
@@ -1191,7 +1370,6 @@ console.log(mbappe.details());
 
 // // using textConetnt
 // console.log(h1.textContent)
-
 
 // getAttribute(), setAttribute(). getAttribute() can be used to retrieve any
 // attribute such as class, id, href
@@ -1204,13 +1382,13 @@ console.log(mbappe.details());
 // console.log(first)
 
 // className, classList. One of the ways to add a class to an element without
-// overwritting the classes present in the element is by using classList. 
+// overwritting the classes present in the element is by using classList.
 
 // const first = document.getElementById("random")
 // const classValue = first.className
 // // console.log(classValue)
 
-// // re-assigning the class like this overwrites previous class value. 
+// // re-assigning the class like this overwrites previous class value.
 // // first.className = "random-class"
 // // console.log(first.className)
 
@@ -1261,9 +1439,8 @@ console.log(mbappe.details());
 // h3.innerHTML = `This is a new heading`
 // document.body.prepend(h3)
 
-
 // For removing elements from the DOM, we can use the remove or removeChild
-// methods. 
+// methods.
 
 // const heading = document.querySelector("h1")
 
@@ -1286,8 +1463,6 @@ console.log(mbappe.details());
 // // randomSection.textContent = `<p>${text}</p>`
 // randomSection.innerHTML = `<p>${text}</p>`
 // document.body.appendChild(randomSection)
-
-
 
 // The DOM - Document object Model.
 
