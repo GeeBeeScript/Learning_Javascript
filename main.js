@@ -1,3 +1,186 @@
+// Javascript extras
+
+// "map" array method: It does not change the size of the array(unlike filter).
+// It uses the values from the original array when making the new one.
+// const workshopWorkers = [
+//     {
+//         name: "David",
+//         age: 27,
+//         specialty: "Electronics"
+//     },
+//     {
+//         name: "Emma",
+//         age: 38,
+//         specialty: "Software"
+//     }
+// ]
+
+// const futureAge = workshopWorkers.map(function (item) {
+//     console.log(item.age + 5);
+//     return "ok"
+// })
+
+// console.log(futureAge);
+
+// This shows a method for getting unique values from an array.
+
+// const workshopWorkers = [
+//   {
+//     name: "David",
+//     specialty: "Electronics",
+//   },
+//   {
+//     name: "Emma",
+//     specialty: "Electronics",
+//   },
+//   {
+//     name: "Moses",
+//     specialty: "Mechanical components",
+//   },
+//   {
+//     name: "Jacob",
+//     specialty: "Welder",
+//   },
+//   {
+//     name: "Pascal",
+//     specialty: "Welder",
+//   },
+//   {
+//     name: "Rabiu",
+//     specialty: "Mechanical components",
+//   },
+//   {
+//     name: "Hope",
+//     specialty: "Electronics",
+//   },
+// ];
+
+
+// const allSpecialties = ["all", ...new Set (workshopWorkers.map(item => item.specialty))]
+// console.log(allSpecialties);
+
+// const con = document.querySelector(".con")
+// con.innerHTML = allSpecialties.map((item) => {
+//     return `<button>${item}</button>`
+// }).join("")
+
+
+// Dynamic object keys
+
+// const people = {
+//     // You cannot name a key in objects using a dash "-" in between 
+//     // letters.
+//     // first-batch: ["John", "David", "Mike"]
+//     //An option could be to turn the the key into a string, but then the 
+//     // key name would not be accessible using dot notation. We can access 
+//     // this string key using square bracket notation
+//     "first-batch": ["John", "David", "Mike"]
+// }
+
+// console.log(people["first-batch"]);
+
+// // A way to set object keys to be dynamic is,
+// let appState = "loading"
+// appState = "error"
+// const keyName = "food"
+
+// const app = {
+//     // We can decide to set an object item whose key changes, by using this
+//     // syntax. This syntax denotes that the variable in the square bracket 
+//     // is allowed to change. 
+//     [appState]: true,
+//     userName: "Rebecca"
+// }
+
+// console.log(app);
+// // This will return an error
+// // console.log(app[userName]);
+// // This can be used for adding new items into the object. It can be used
+// // to re-assign existing object values, when used the right way.   
+// app[keyName] = "rice"
+// // This will return an error
+// // app[userName] = "Hope"
+// // This will work
+// const x = "userName"
+// app[x] = "Princess"
+
+// console.log(app);
+// // This will return the value of the dynamic "[appState]"
+// // console.log(app[appState]);
+
+
+// function updateObjects(key, value) {
+//     app[key] = value
+//     console.log(app);
+// }
+
+// updateObjects("userName", "DiMarco")
+// updateObjects(appState, false)
+// updateObjects("food", ["Eggs", "Milk", "Beef"])
+
+
+// Filter and find methods
+// Filter - returns a new array, can manipulate the size of the new array(unlike map),
+// returns based on condition. 
+// find - returns a single instance(object), returns first match, if no match returns
+// undefined
+// With the filter method, you always get an empty array, if there are no items
+// that match your condition, whereas in the find method, you get "undefined" if
+// no item matches with your condition. 
+
+// const people = [
+//     {name: "Hope", age: 27},
+//     {name: "Majeem", age: 22},
+//     {name: "Moses", age: 34},
+//     {name: "Sanjay", age: 42}
+// ]
+
+// // const youngPeople = people.filter(person => {
+// //     return person.age < 30
+// // })
+
+// // console.log(youngPeople);
+
+// const daniella = people.filter(item => {
+//     return item.name === "Daniella"
+// })
+
+// console.log(daniella);
+
+// // find
+
+// const youngPerson = people.find(person => {
+//     return person.age <= 30
+// })
+
+// console.log(youngPerson);
+ 
+// Reduce 
+// The reduce method reduces a set of values to a single value. 
+
+const people = [
+    {name: "Hope", age: 27},
+    {name: "Majeem", age: 22},
+    {name: "Moses", age: 34},
+    {name: "Sanjay", age: 42}
+]
+
+const totalAges = people.reduce((acc, currItem) => {
+
+    acc += currItem.age
+    return acc
+}, 0)
+
+console.log(totalAges);
+
+
+
+
+
+
+
+
+
 // JavaScript functions (separate course)
 // function evaluate(a, b, c) {
 //     return a + b / c
@@ -801,41 +984,41 @@
 // mourinho.init("Tuchel",  "German")
 // console.log(mourinho);
 
-class Car {
-  constructor(make, speed) {
-    this.make = make;
-    this.speed = speed;
-  }
+// class Car {
+//   constructor(make, speed) {
+//     this.make = make;
+//     this.speed = speed;
+//   }
 
-  accelerate() {
-    this.speed += 10;
-    console.log(`${this.make} is going at ${this.speed}km/hr`);
-  }
+//   accelerate() {
+//     this.speed += 10;
+//     console.log(`${this.make} is going at ${this.speed}km/hr`);
+//   }
 
-  brake() {
-    this.speed -= 10;
-    console.log(`${this.make} is going ar ${this.speed}km/hr`);
-  }
+//   brake() {
+//     this.speed -= 10;
+//     console.log(`${this.make} is going ar ${this.speed}km/hr`);
+//   }
 
-  get speedUS() {
-    return `${this.speed * 1.6} mi/h`;
-  }
+//   get speedUS() {
+//     return `${this.speed * 1.6} mi/h`;
+//   }
 
-  set speedUS(val) {
-    this.speed = val * 1.6;
-  }
-}
+//   set speedUS(val) {
+//     this.speed = val * 1.6;
+//   }
+// }
 
-const kia = new Car("Kia", 140);
-kia.accelerate();
-console.log(kia.speedUS);
-kia.accelerate();
-kia.accelerate();
-kia.brake();
-kia.brake();
-kia.speedUS = 2;
+// const kia = new Car("Kia", 140);
+// kia.accelerate();
+// console.log(kia.speedUS);
+// kia.accelerate();
+// kia.accelerate();
+// kia.brake();
+// kia.brake();
+// kia.speedUS = 2;
 
-console.log(kia);
+// console.log(kia);
 
 // INHERITANCE BETWEEN CLASSES.
 
@@ -1041,72 +1224,62 @@ console.log(kia);
 // acc1.deposit(7000).deposit(8000).withdraw(300).requestLoan(500);
 
 // Exercise
-class CarCl {
-  constructor(make, speed) {
-    this.make = make;
-    this.speed = speed;
-  }
+// class CarCl {
+//   constructor(make, speed) {
+//     this.make = make;
+//     this.speed = speed;
+//   }
 
-  brake() {
-    this.speed -= 5;
-  }
+//   brake() {
+//     this.speed -= 5;
+//   }
 
-  accelerate(val) {
-    this.speed += val;
-  }
-}
+//   accelerate(val) {
+//     this.speed += val;
+//   }
+// }
 
-class EvCl extends CarCl {
-  #charge;
-  constructor(make, speed, charge) {
-    super(make, speed);
-    this.#charge = charge;
-  }
+// class EvCl extends CarCl {
+//   #charge;
+//   constructor(make, speed, charge) {
+//     super(make, speed);
+//     this.#charge = charge;
+//   }
 
-  accelerate() {
-    this.speed += 10;
-    console.log(`You are moving at ${this.speed}km/hr`);
-    return this;
-  }
+//   accelerate() {
+//     this.speed += 10;
+//     console.log(`You are moving at ${this.speed}km/hr`);
+//     return this;
+//   }
 
-  brake() {
-    this.speed -= 5;
-    console.log(`Your speed is now ${this.speed}km/hr`);
-    return this;
-  }
+//   brake() {
+//     this.speed -= 5;
+//     console.log(`Your speed is now ${this.speed}km/hr`);
+//     return this;
+//   }
 
-  chargeBattery(chargeTo) {
-    let chargeVal = this.#charge;
-    chargeVal += chargeTo;
-    if (chargeVal <= 100) {
-      this.#charge += chargeTo;
-      console.log(
-        `${chargeTo}% has been added to your battery percentage. New Percentage is ${
-          this.#charge
-        }%`
-      );
-    } else {
-      throw new Error(`Charge value is ${this.#charge}%. Add a lower amount`);
-    }
-    return this;
-  }
-}
+//   chargeBattery(chargeTo) {
+//     let chargeVal = this.#charge;
+//     chargeVal += chargeTo;
+//     if (chargeVal <= 100) {
+//       this.#charge += chargeTo;
+//       console.log(
+//         `${chargeTo}% has been added to your battery percentage. New Percentage is ${
+//           this.#charge
+//         }%`
+//       );
+//     } else {
+//       throw new Error(`Charge value is ${this.#charge}%. Add a lower amount`);
+//     }
+//     return this;
+//   }
+// }
 
-const rivian = new EvCl("Rivian", 160, 70);
+// const rivian = new EvCl("Rivian", 160, 70);
 
-console.log(
-  rivian.accelerate().accelerate().brake().accelerate().chargeBattery(30)
-);
-
-
-
-
-
-
-
-
-
-
+// console.log(
+//   rivian.accelerate().accelerate().brake().accelerate().chargeBattery(30)
+// );
 
 // Web Storage API - they are methods of storage provided by the browser.
 // Some examples include localStorage and sessionStorage. There are default
