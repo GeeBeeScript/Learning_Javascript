@@ -55,7 +55,6 @@
 //   },
 // ];
 
-
 // const allSpecialties = ["all", ...new Set (workshopWorkers.map(item => item.specialty))]
 // console.log(allSpecialties);
 
@@ -64,15 +63,14 @@
 //     return `<button>${item}</button>`
 // }).join("")
 
-
 // Dynamic object keys
 
 // const people = {
-//     // You cannot name a key in objects using a dash "-" in between 
+//     // You cannot name a key in objects using a dash "-" in between
 //     // letters.
 //     // first-batch: ["John", "David", "Mike"]
-//     //An option could be to turn the the key into a string, but then the 
-//     // key name would not be accessible using dot notation. We can access 
+//     //An option could be to turn the the key into a string, but then the
+//     // key name would not be accessible using dot notation. We can access
 //     // this string key using square bracket notation
 //     "first-batch": ["John", "David", "Mike"]
 // }
@@ -86,8 +84,8 @@
 
 // const app = {
 //     // We can decide to set an object item whose key changes, by using this
-//     // syntax. This syntax denotes that the variable in the square bracket 
-//     // is allowed to change. 
+//     // syntax. This syntax denotes that the variable in the square bracket
+//     // is allowed to change.
 //     [appState]: true,
 //     userName: "Rebecca"
 // }
@@ -96,7 +94,7 @@
 // // This will return an error
 // // console.log(app[userName]);
 // // This can be used for adding new items into the object. It can be used
-// // to re-assign existing object values, when used the right way.   
+// // to re-assign existing object values, when used the right way.
 // app[keyName] = "rice"
 // // This will return an error
 // // app[userName] = "Hope"
@@ -108,7 +106,6 @@
 // // This will return the value of the dynamic "[appState]"
 // // console.log(app[appState]);
 
-
 // function updateObjects(key, value) {
 //     app[key] = value
 //     console.log(app);
@@ -118,15 +115,14 @@
 // updateObjects(appState, false)
 // updateObjects("food", ["Eggs", "Milk", "Beef"])
 
-
 // Filter and find methods
 // Filter - returns a new array, can manipulate the size of the new array(unlike map),
-// returns based on condition. 
+// returns based on condition.
 // find - returns a single instance(object), returns first match, if no match returns
 // undefined
 // With the filter method, you always get an empty array, if there are no items
 // that match your condition, whereas in the find method, you get "undefined" if
-// no item matches with your condition. 
+// no item matches with your condition.
 
 // const people = [
 //     {name: "Hope", age: 27},
@@ -154,24 +150,277 @@
 // })
 
 // console.log(youngPerson);
- 
-// Reduce 
-// The reduce method reduces a set of values to a single value. 
 
-const people = [
-    {name: "Hope", age: 27},
-    {name: "Majeem", age: 22},
-    {name: "Moses", age: 34},
-    {name: "Sanjay", age: 42}
-]
+// Reduce
+// The reduce method reduces a set of values to a single value.
 
-const totalAges = people.reduce((acc, currItem) => {
+// const people = [
+//     {name: "Hope", age: 27},
+//     {name: "Majeem", age: 22},
+//     {name: "Moses", age: 34},
+//     {name: "Sanjay", age: 42}
+// ]
 
-    acc += currItem.age
-    return acc
-}, 0)
+// // const totalAges = people.reduce((acc, currItem) => {
 
-console.log(totalAges);
+// //     acc += currItem.age
+// //     return acc
+// // }, 0)
+
+// // console.log(totalAges);
+
+// let {totalPeople, totalAges} = people.reduce((acc, currItem) => {
+//     const {name, age} = currItem
+//     acc.totalAges += age
+//     acc.totalPeople += 1
+//     return acc
+// }, {
+//     totalPeople: 0,
+//     totalAges: 0
+// })
+
+// // This is not needed
+// totalAges = parseFloat(totalAges.toFixed(1))
+
+// console.log(totalPeople, totalAges)
+
+// Destructuring: It is a faster/easier way to unpack variables from
+// arrays/objects.
+
+// Destructuring(Arrays)
+
+const persons = ["Jason", "Rielle", "Victoria", "Miranda", "Cooper"];
+
+// const [jason, rielle, victoria, miranda, cooper] = persons
+// console.log(jason, rielle, victoria, miranda, cooper);
+
+// const [jason, rielle, victoria, miranda, cooper, brendan] = persons
+// console.log(jason, rielle, victoria, miranda, cooper, brendan);
+
+// const [jason, , , miranda, ] = persons
+// console.log(jason, miranda);
+
+// Destructuring(Objects)
+
+// const footballPlayer = {
+//     name: "Cristiano Ronaldo",
+//     age: 40,
+//     jerseyNumber: 7,
+//     affiliations: {
+//         club: "Al Nassr FC",
+//         country: "Portugal national Football Team"
+//     }
+// }
+
+// Here we named the variable names from the names of the key values in the
+// object. This is unlike arrays, where the order matters
+// const {name, age, jerseyNumber, stats} = footballPlayer
+// console.log(name, age, jerseyNumber, stats);
+
+// const {age, affiliations} = footballPlayer
+// console.log(age, affiliations);
+
+// You can rename the variable you want to assign to the value of the key.
+
+// const {age: currentAge, affiliations: currentAff, affiliations: {club: currentClub}} = footballPlayer
+// console.log(currentAge, currentAff, currentClub);
+
+// Spread operator, "..." . It allows an iterable to spread/expand individually
+// inside a reciever. It allows splitting into single items, and copying them.
+// It doesn't reference the values, it copies them.
+
+// const name = "Daniel"
+
+// // "Spreads" the string into individual letters in the array
+// const letters = [...name]
+// console.log(letters);
+
+// const footballPlayers = ["Ronaldo", "Messi", "Neymar", "Benzema"]
+// const basketballPlayers = ["Curry", "Durant", "Davis"]
+
+// Spreads items individually of each array
+// const athletes = [...footballPlayers, ...basketballPlayers]
+// console.log(athletes);
+
+// Spread items are copied, not referenced
+
+// const athletes = [...footballPlayers, ...basketballPlayers]
+// const goodAthletes = [...athletes]
+// goodAthletes[2] = "Suarez"
+// console.log(athletes, goodAthletes);
+
+// const footballPlayer = {
+//     name: "Cristiano Ronaldo",
+//     age: 40,
+// }
+
+// // You can add new properties, and overwrite properties as well
+// const experiencedPlayer = {...footballPlayer, club: "Porto", name: "Pepe"}
+// console.log(experiencedPlayer);
+
+// Rest operator, "..." . The rest operator gathers/collects items.  The
+// rest operator should always be placed as the last item.
+
+// const vehicleComponents = ["Engine", "Tyres", "Brakes", "Steering wheel"]
+
+// const [engine, ...restOfComponents] = vehicleComponents
+// console.log(engine, restOfComponents);
+
+// const footballPlayer = {
+//     name: "Cristiano Ronaldo",
+//     age: 40,
+//     jerseyNumber: 7,
+//     affiliations: {
+//         club: "Al Nassr FC",
+//         country: "Portugal national Football Team"
+//     }
+// }
+
+// //
+// const {jerseyNumber, ...restOfDetails} = footballPlayer
+// console.log(jerseyNumber, restOfDetails);
+
+// Array.from . Array.from is not on the Array object prototype(it is most
+// likely on the array object). It returns an array object from any object
+// with a length property or an iterable. You can also use this to turn a
+// nodeList into an array.
+
+// const name = "David"
+// const arrayName = Array.from(name)
+// console.log(arrayName);
+
+// const items = Array.from({ length: 150 }, (_, index) => {
+//     return index
+// })
+
+// console.log(items);
+
+// Optional chaining - It can be used as a conditional for objects with multiple
+// nested structures, whose degree of nesting are not the same amoung fellow
+// key-value pairs. That is, used for objects that may be nested to different
+// levels.
+
+// const people = [
+//   {
+//     name: "Gabriel",
+//     location: {
+//       street: "456 main street",
+//       timezone: {
+//         offset: "+7:00",
+//       },
+//     },
+//   },
+//   {
+//     name: "Declan",
+//     location: {
+//       street: "334 groove street",
+//     },
+//   },
+//   {
+//     name: "Thomas",
+//     location: {
+//       street: "123 mol street",
+//       timezone: {
+//         offset: "+4:00",
+//       },
+//     },
+//   },
+// ];
+
+// console.log(people);
+
+// people.forEach((person) => {
+//   // console.log(person.location.timezone.offset);
+//   // A solution could be
+// //   console.log(
+// //     person.location &&
+// //       person.location.timezone &&
+// //       person.location.timezone.offset
+// //   );
+//   //Optional chaining could also be used. This essentially says, "if person 
+//   // exists, access location, if it exists, access timezone etc". If the value
+//   // is not available, it returns "undefined". Here, if the value does not exist,
+//   // the "or" statement is called, an the value after the "or" statement acts
+//   // as the default value. 
+//   console.log(person?.location?.timezone?.offset || "hi");
+// });
+
+
+// Callback functions
+
+function upperCase(value) {
+    console.log(value.toUpperCase());
+}
+
+function reverseString(value) {
+    console.log(value.split("").reverse().join(""));
+    
+}
+
+function manipulateString (name, cb) {
+    const fullName = `${name} Davids`
+    cb(fullName)
+}
+
+manipulateString("Justin", upperCase)
+manipulateString("Bree", reverseString)
+
+// Callback hell is when you have a pyramid-like structure of nested callback
+// functions. This isn't good convention, as it can make good difficult to 
+// manage. Promises fix this problem. 
+
+
+// Promises. The main purpose of using promises is to avoid callback hell. 
+// In javascript, a promise is an object that returns a value, which you
+// hope to recieve in the future. Promises can be on either of 3 states: 
+// Pending, rejected, Fufilled. When a promise goes from pending to 
+// rejected, or from pending to fufilled, it cannot go back (by default)
+// to fufilled or pending. Initially, the promise will be on "pending". 
+// "resolve" and "reject" are default parameter functions available to
+// promises. "resolve" can be used to pass in some form of data to the
+// application(data can be passed in as an argument to the function, resolve).
+// ".then()" is for resolve(), and ".catch()" is for reject(). Another callback
+// function is passed into ".then()", usually to use the values from resolve().
+
+
+
+// const promise = new Promise ((resolve, reject) => {
+//     // resolve("Hello")
+//     reject("There was an error")
+// })
+
+// console.log(promise);
+
+// promise.then((value) => console.log(value)).catch((error) => {console.log(error)})
+
+
+const btn = document.querySelector("#random-btn")
+
+btn.addEventListener("click", () => {
+    setColor(1000, ".first", "purple").then(
+        setColor(3000, "#title", "red").then(() => {
+            setColor(2000, "#random-btn", "yellow")
+        })
+    ).catch((err) => {
+        console.log(err);
+    })
+})
+
+function setColor(time, selector, color) {
+    const element = document.querySelector(selector)
+    return new Promise((resolve, reject) => {
+        if (element) {
+            setTimeout(() => {
+                element.style.color = color
+                resolve()
+            }, time)
+        } else {
+            reject(`Selector "${selector}", does not exist`)
+        }
+    })
+}
+
+
 
 
 
