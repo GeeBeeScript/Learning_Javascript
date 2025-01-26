@@ -421,6 +421,30 @@ function setColor(time, selector, color) {
 }
 
 
+// Async/await - it allows us to write asynchronous code in synchronous fashion. 
+// "async" must be present in order to use "await". "async" always returns a 
+// promise. "await" waits till the promise is settled. "async" can be 
+// declared using general function declaration or using arrow function.
+// If the promise is not returning any data(for example, from resolve()), then
+// you do not have to store the await statement in a variable. Async/await is 
+// a better alternative to chaining multiple ".then()" . A "try-catch" block
+// can be used for error handling when using async/await .  
+
+// Here is an example
+
+const randomExample = async () => {
+    return "Hi"
+}
+
+async function randFunc () {
+    const result = await randomExample()
+    console.log(result);
+    console.log("Yo");
+}
+
+randFunc()
+
+
 
 
 
