@@ -430,7 +430,7 @@ function setColor(time, selector, color) {
 // a better alternative to chaining multiple ".then()" . A "try-catch" block
 // can be used for error handling when using async/await .  
 
-// Here is an example
+// Here is an example: 
 
 const randomExample = async () => {
     return "Hi"
