@@ -337,52 +337,47 @@ const persons = ["Jason", "Rielle", "Victoria", "Miranda", "Cooper"];
 // //       person.location.timezone &&
 // //       person.location.timezone.offset
 // //   );
-//   //Optional chaining could also be used. This essentially says, "if person 
+//   //Optional chaining could also be used. This essentially says, "if person
 //   // exists, access location, if it exists, access timezone etc". If the value
 //   // is not available, it returns "undefined". Here, if the value does not exist,
 //   // the "or" statement is called, an the value after the "or" statement acts
-//   // as the default value. 
+//   // as the default value.
 //   console.log(person?.location?.timezone?.offset || "hi");
 // });
-
 
 // Callback functions
 
 function upperCase(value) {
-    console.log(value.toUpperCase());
+  console.log(value.toUpperCase());
 }
 
 function reverseString(value) {
-    console.log(value.split("").reverse().join(""));
-    
+  console.log(value.split("").reverse().join(""));
 }
 
-function manipulateString (name, cb) {
-    const fullName = `${name} Davids`
-    cb(fullName)
+function manipulateString(name, cb) {
+  const fullName = `${name} Davids`;
+  cb(fullName);
 }
 
-manipulateString("Justin", upperCase)
-manipulateString("Bree", reverseString)
+manipulateString("Justin", upperCase);
+manipulateString("Bree", reverseString);
 
 // Callback hell is when you have a pyramid-like structure of nested callback
-// functions. This isn't good convention, as it can make good difficult to 
-// manage. Promises fix this problem. 
+// functions. This isn't good convention, as it can make good difficult to
+// manage. Promises fix this problem.
 
-
-// Promises. The main purpose of using promises is to avoid callback hell. 
+// Promises. The main purpose of using promises is to avoid callback hell.
 // In javascript, a promise is an object that returns a value, which you
-// hope to recieve in the future. Promises can be on either of 3 states: 
-// Pending, rejected, Fufilled. When a promise goes from pending to 
+// hope to recieve in the future. Promises can be on either of 3 states:
+// Pending, rejected, Fufilled. When a promise goes from pending to
 // rejected, or from pending to fufilled, it cannot go back (by default)
-// to fufilled or pending. Initially, the promise will be on "pending". 
+// to fufilled or pending. Initially, the promise will be on "pending".
 // "resolve" and "reject" are default parameter functions available to
 // promises. "resolve" can be used to pass in some form of data to the
 // application(data can be passed in as an argument to the function, resolve).
 // ".then()" is for resolve(), and ".catch()" is for reject(). Another callback
 // function is passed into ".then()", usually to use the values from resolve().
-
-
 
 // const promise = new Promise ((resolve, reject) => {
 //     // resolve("Hello")
@@ -393,56 +388,57 @@ manipulateString("Bree", reverseString)
 
 // promise.then((value) => console.log(value)).catch((error) => {console.log(error)})
 
-
-const btn = document.querySelector("#random-btn")
+const btn = document.querySelector("#random-btn");
 
 btn.addEventListener("click", () => {
-    setColor(1000, ".first", "purple").then(
-        setColor(3000, "#title", "red").then(() => {
-            setColor(2000, "#random-btn", "yellow")
-        })
-    ).catch((err) => {
-        console.log(err);
-    })
-})
+  setColor(1000, ".first", "purple")
+    .then(
+      setColor(3000, "#title", "red").then(() => {
+        setColor(2000, "#random-btn", "yellow");
+      })
+    )
+    .catch((err) => {
+      console.log(err);
+    });
+});
 
 function setColor(time, selector, color) {
-    const element = document.querySelector(selector)
-    return new Promise((resolve, reject) => {
-        if (element) {
-            setTimeout(() => {
-                element.style.color = color
-                resolve()
-            }, time)
-        } else {
-            reject(`Selector "${selector}", does not exist`)
-        }
-    })
+  const element = document.querySelector(selector);
+  return new Promise((resolve, reject) => {
+    if (element) {
+      setTimeout(() => {
+        element.style.color = color;
+        resolve();
+      }, time);
+    } else {
+      reject(`Selector "${selector}", does not exist`);
+    }
+  });
 }
 
-
-// Async/await - it allows us to write asynchronous code in synchronous fashion. 
-// "async" must be present in order to use "await". "async" always returns a 
-// promise. "await" waits till the promise is settled. "async" can be 
+// Async/await - it allows us to write asynchronous code in synchronous fashion.
+// "async" must be present in order to use "await". "async" always returns a
+// promise. "await" waits till the promise is settled. "async" can be
 // declared using general function declaration or using arrow function.
 // If the promise is not returning any data(for example, from resolve()), then
-// you do not have to store the await statement in a variable. Async/await is 
+// you do not have to store the await statement in a variable. Async/await is
 // a better alternative to chaining multiple ".then()" . A "try-catch" block
-// can be used for error handling when using async/await .  
+// can be used for error handling when using async/await .
 
-// Here is an example: 
+// Here is an example:
 
-const randomExample = async () => {
-    return "Hi"
-}
+// const randomExample = async () => {
+//     return "Hi"
+// }
 
-async function randFunc () {
-    const result = await randomExample()
-    console.log(result);
-    console.log("Yo");
-}
+// async function randFunc () {
+//     const result = await randomExample()
+//     console.log(result);
+//     console.log("Yo");
+// }
 
-randFunc()
+// randFunc()
+
 
 
 
