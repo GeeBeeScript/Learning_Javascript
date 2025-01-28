@@ -388,33 +388,33 @@ manipulateString("Bree", reverseString);
 
 // promise.then((value) => console.log(value)).catch((error) => {console.log(error)})
 
-const btn = document.querySelector("#random-btn");
+// const btn = document.querySelector("#random-btn");
 
-btn.addEventListener("click", () => {
-  setColor(1000, ".first", "purple")
-    .then(
-      setColor(3000, "#title", "red").then(() => {
-        setColor(2000, "#random-btn", "yellow");
-      })
-    )
-    .catch((err) => {
-      console.log(err);
-    });
-});
+// btn.addEventListener("click", () => {
+//   setColor(1000, ".first", "purple")
+//     .then(
+//       setColor(3000, "#title", "red").then(() => {
+//         setColor(2000, "#random-btn", "yellow");
+//       })
+//     )
+//     .catch((err) => {
+//       console.log(err);
+//     });
+// });
 
-function setColor(time, selector, color) {
-  const element = document.querySelector(selector);
-  return new Promise((resolve, reject) => {
-    if (element) {
-      setTimeout(() => {
-        element.style.color = color;
-        resolve();
-      }, time);
-    } else {
-      reject(`Selector "${selector}", does not exist`);
-    }
-  });
-}
+// function setColor(time, selector, color) {
+//   const element = document.querySelector(selector);
+//   return new Promise((resolve, reject) => {
+//     if (element) {
+//       setTimeout(() => {
+//         element.style.color = color;
+//         resolve();
+//       }, time);
+//     } else {
+//       reject(`Selector "${selector}", does not exist`);
+//     }
+//   });
+// }
 
 // Async/await - it allows us to write asynchronous code in synchronous fashion.
 // "async" must be present in order to use "await". "async" always returns a
@@ -440,8 +440,32 @@ function setColor(time, selector, color) {
 // randFunc()
 
 
+// Fetch API - Fetch API is a browser API for Http(AJAX) requests. The default
+// is GET request, it supports other methods as well. Fetch API returns a 
+// promise. 
 
 
+const url = "https://v2.jokeapi.dev/joke/Programming?type=single"
+
+// fetch(url)
+//   .then((response) => response.json())
+//   .then((data) => console.log(data))
+//   .catch((error) => console.log(error))
+
+
+const getJokes = async () => {
+  try {
+    const resp = await fetch(url)
+    return resp.json()
+    // const data = await resp.json()
+    // console.log(data)
+  } catch(err) {
+    console.log(err);
+  }
+}
+
+// getJokes()
+getJokes().then((val) => console.log(val))
 
 
 
@@ -468,6 +492,7 @@ function setColor(time, selector, color) {
 //     console.log("x: " + x, typeof(x));
 //     console.log("y: " + y, typeof(y));
 // }
+
 
 // restExample("a","b","c","d","e","f","g")
 
