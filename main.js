@@ -189,7 +189,7 @@
 
 // Destructuring(Arrays)
 
-const persons = ["Jason", "Rielle", "Victoria", "Miranda", "Cooper"];
+// const persons = ["Jason", "Rielle", "Victoria", "Miranda", "Cooper"];
 
 // const [jason, rielle, victoria, miranda, cooper] = persons
 // console.log(jason, rielle, victoria, miranda, cooper);
@@ -347,21 +347,21 @@ const persons = ["Jason", "Rielle", "Victoria", "Miranda", "Cooper"];
 
 // Callback functions
 
-function upperCase(value) {
-  console.log(value.toUpperCase());
-}
+// function upperCase(value) {
+//   console.log(value.toUpperCase());
+// }
 
-function reverseString(value) {
-  console.log(value.split("").reverse().join(""));
-}
+// function reverseString(value) {
+//   console.log(value.split("").reverse().join(""));
+// }
 
-function manipulateString(name, cb) {
-  const fullName = `${name} Davids`;
-  cb(fullName);
-}
+// function manipulateString(name, cb) {
+//   const fullName = `${name} Davids`;
+//   cb(fullName);
+// }
 
-manipulateString("Justin", upperCase);
-manipulateString("Bree", reverseString);
+// manipulateString("Justin", upperCase);
+// manipulateString("Bree", reverseString);
 
 // Callback hell is when you have a pyramid-like structure of nested callback
 // functions. This isn't good convention, as it can make good difficult to
@@ -445,28 +445,188 @@ manipulateString("Bree", reverseString);
 // promise. 
 
 
-const url = "https://v2.jokeapi.dev/joke/Programming?type=single"
+// const url = "https://v2.jokeapi.dev/joke/Programming?type=single"
 
-// fetch(url)
-//   .then((response) => response.json())
-//   .then((data) => console.log(data))
-//   .catch((error) => console.log(error))
+// // fetch(url)
+// //   .then((response) => response.json())
+// //   .then((data) => console.log(data))
+// //   .catch((error) => console.log(error))
 
 
-const getJokes = async () => {
-  try {
-    const resp = await fetch(url)
-    return resp.json()
-    // const data = await resp.json()
-    // console.log(data)
-  } catch(err) {
-    console.log(err);
-  }
+// const getJokes = async () => {
+//   try {
+//     const resp = await fetch(url)
+//     return resp.json()
+//     // const data = await resp.json()
+//     // console.log(data)
+//   } catch(err) {
+//     console.log(err);
+//   }
+// }
+
+// // getJokes()
+// getJokes().then((val) => console.log(val))
+
+
+// Width/Height
+// window.innerHeight and window.innerWidth gives us the height of the window.
+// getBoundingClient() method gives you comprehensive dimension of the selected
+// element. 
+// console.log("height", window.innerHeight)
+// console.log("width", window.innerWidth)
+
+// const h1 = document.querySelector("#title")
+// const btn = document.querySelector("#random-btn")
+
+// btn.addEventListener("click", () => {
+//   const dimension = h1.getBoundingClientRect()
+//   console.log(dimension);
+// })
+
+
+// ES 2022(ECMASCRIPT 2022)
+// at() - takes integer and returns item at that index i.e, string, array. 
+// Top level await was also introduced
+
+// const randomValues = [5, 7, 9, 2, 3]
+
+// // previous method
+// const lastValue = randomValues[randomValues.length - 1]
+// console.log(lastValue);
+
+// // new method
+// const lastItem = randomValues.at(-1)
+// console.log(lastItem);
+
+
+// "for in" loop is primary used to iterate over object properties(it is not
+// advised to use it on arrays, especially the order is important)
+// "for of" loop should be used on arrays instead
+
+// usage on objects. When the "for in" loop runs, it gets the key of each item
+
+// const person = {
+//   name: "David",
+//   age: 27,
+//   gender: "Male"
+// }
+
+// for (const propertyName in person) {
+//   console.log(`${propertyName}: ${[person[propertyName]]}`)
+// }
+
+
+// Three default methods can be used to easily convert objects into arrays
+// Object.keys() - converts object names into keys
+// Object.values() - converts object values into keys
+// Object.entries() - converts both object keys and values into arrays, making
+// each object item(both key and value) into an array inside the main array
+
+// const person = {
+//   name: "David",
+//   age: 27,
+//   gender: "Male"
+// }
+
+// const keyValues = Object.keys(person)
+// console.log(keyValues);
+
+// const objectValues = Object.values(person)
+// console.log(objectValues);
+
+// const objectEntries = Object.entries(person)
+// console.log(objectEntries);
+
+
+// Set - sets stores a set of unique values of any data type. You can create
+// a set using "new Set()". add values using "add(value)", delete values using
+// delete(value). clear sets using ".clear()" method. You can check whether or
+// not a set has a value using the ".has(value)" method. You can iterate
+// through a set using iterators such as: entries(), keys(), values(), forEach()
+
+// const uniqueValues = new Set()
+
+// uniqueValues.add("Joseph")
+// uniqueValues.add("Joseph")
+// uniqueValues.add({name: "David", age: 22})
+// uniqueValues.add({name: "David", age: 22})
+// uniqueValues.add(22)
+// uniqueValues.add(22)
+// uniqueValues.add(true)
+// uniqueValues.add(true)
+
+// uniqueValues.delete(22)
+
+// console.log(uniqueValues.has("Joseph"))
+
+
+// console.log(uniqueValues);
+
+
+// String includes() checks if a string contains another string. 
+
+// const name = "Daniella"
+
+// console.log(name.includes("nie"));
+
+
+// Array includes() checks if an item is in an array. 
+
+// const carComponents = ["Brake", "Steering", "Tyres"]
+
+// // const newItem = "Fuselage"
+// const newItem = "Brake"
+
+// // const isIncluded = carComponents.includes(newItem)
+// // You can also add the start index for the item in the list to be
+// //  searched for in that index
+// const isIncluded = carComponents.includes(newItem, 1)
+// console.log(isIncluded);
+
+// const form = document.querySelector("form")
+
+// form.addEventListener("submit", (e) => {
+//     e.preventDefault()
+//     const formData = new FormData(e.currentTarget)
+
+//     const keys = [...formData.keys()]
+//     console.log(keys);
+
+//     const values = [...formData.values()]
+//     console.log(values);
+
+//     const entries = [...formData.entries()]
+//     console.log(entries);
+    
+//     // You can also get data by iterating with "for of" loop
+
+//     for (const [name, value] of formData) {
+//         console.log(name, value)
+//     }
+    
+
+//     console.log(formData);
+// })
+
+
+// Debouncing involves delaying the time for logic to implement(a function to 
+// run). 
+
+const btn = document.querySelector("#submit")
+
+const debounce = () => {
+    console.log("Hi");    
+    let timeoutId 
+    return () => {
+        console.log(timeoutId)
+        clearTimeout(timeoutId)
+        timeoutId = setTimeout(() => {
+            console.log("click")
+        }, 3000)
+    }
 }
 
-// getJokes()
-getJokes().then((val) => console.log(val))
-
+btn.addEventListener("click", debounce())
 
 
 
@@ -491,6 +651,7 @@ getJokes().then((val) => console.log(val))
 // function restExample (x, ...y) {
 //     console.log("x: " + x, typeof(x));
 //     console.log("y: " + y, typeof(y));
+
 // }
 
 
